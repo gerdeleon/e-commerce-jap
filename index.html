@@ -9,6 +9,8 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <script src="login.js"></script>
+  
 </head>
 
 <body>
@@ -85,9 +87,20 @@
       <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
     </div>
   </footer>
+  
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/index.js"></script>
   <script src="js/init.js"></script>
+  <script src="login.js"></script>
+  <script>
+      // Verificar si se ha iniciado sesión al cargar la página
+      window.onload = function () {
+          if (!verificarSesion()) {
+              // Redirigir al formulario de inicio de sesión
+              window.location.href = "login.html";
+          }
+      };
+  </script>
 </body>
 
 </html>
