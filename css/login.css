@@ -1,0 +1,148 @@
+
+
+.form {
+    background-color: white;
+    width: 350px;
+    height: 450px;
+    border-radius: 30px;
+    margin-top: 5%;
+    margin-left: 41%;
+    box-shadow: 15px 15px 300px rgb(79, 79, 125);
+    text-align:center;
+    align-items: center;
+
+}
+
+
+.fin {
+    margin-top: 5%;
+    margin-bottom: 0%;
+    text-align: center;
+}
+
+
+.form .log {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    margin-top: -50px;
+}
+
+h1 {
+    font-size: 50px;
+    margin-top: -10%;
+    color: orange;
+    margin-bottom: 0%;
+}
+
+h2 {
+    margin-top: -5%;
+    margin-bottom: 0%;
+    font-size: 45px;
+    color: rgb(79, 79, 125);
+}
+
+h3 {
+    margin: 0%;
+    color:rgb(79, 79, 125);
+}
+.form .form-label {
+    margin-top: 0px;
+    padding: 0%;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-size: 25px;
+    color: transparent;
+    
+}
+
+.form .form-check-label {
+   font-size: small;
+   color:   rgb(0, 0, 0);
+   text-align: center;
+ padding-bottom: 0px;
+}
+
+.form input[type="email"],
+.form input[type="password"] {
+    border: none;
+    border-bottom: 2px solid rgb(255, 153, 0);
+    outline: none;
+    height: 35px;
+    font-size: 16px;
+    width: 300px;
+    color: rgb(79, 79, 125);
+}
+
+.btn {
+    border: none;
+    height: 50px;
+    width: 200px;
+    background: orange;
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+    border-radius: 10px;
+    transition: background-color 0.5s;
+    padding: 10px, 10px;
+   text-decoration: none;
+
+}
+ .btn:hover {
+    background-color: rgb(79, 79, 125);
+ }
+
+ .registro {
+    color: aliceblue;
+    padding: 15px;
+    margin-top: 5px;
+    text-align:center;
+    align-items: center;
+ }
+ .registro .Btn {
+    border: none;
+    height: 90px;
+    width: 200px;
+    background: rgb(79, 79, 125);
+    color: white;
+    font-size: 15px;
+    border-radius: 20px;
+    transition: background-color 0.5s;
+    align-items: center;
+ }
+
+ .Btn:hover {
+    background-color: orange;
+ }
+ 
+
+  .reg {
+    background-color: rgb(245, 245, 245);
+    color:rgb(79, 79, 125);
+    border-radius: 100px;
+    font-size: 25px;
+    width: 10cm;
+    
+}
+
+
+
+footer p {
+    margin: 0px;
+    color: rgb(100, 100, 100);
+    font-size: 15px;    
+}
+.fin {
+    background-color:rgb(245, 245, 245, 80%);
+    max-height: 20px;
+    overflow: hidden;
+}
+
+.left{
+    float: left;
+}
+.right{
+float:right;
+
+}
