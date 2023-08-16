@@ -1,3 +1,29 @@
+document.addEventListener("DOMContentLoaded", function () {
+});
+const usernameInput = document.getElementById('usuario');
+const passwordInput = document.getElementById('contrasena');
+const loginButton = document.getElementById('ingresar');
+
+loginButton.addEventListener('click', () => {
+  const username = usernameInput.value;
+  const password = passwordInput.value;
+
+  // Verificar si el usuario y la contraseña no están vacíos
+  if (username && password) {
+    // Almacenar el usuario y la contraseña en LocalStorage
+    localStorage.setItem('usuario', username);
+    localStorage.setItem('contrasena', password);
+
+    // Limpiar los campos de entrada
+    usernameInput.value = '';
+    passwordInput.value = '';
+
+    window.open("index.html", "_blank");
+  } else {
+    alert('Por favor, ingresa un usuario y contraseña válidos.');
+  }
+});
+
 function validarFormulario() {
     var usuario = document.getElementById("usuario").value;
     var contrasena = document.getElementById("contrasena").value;
@@ -13,12 +39,13 @@ function validarFormulario() {
     return true;
 }
 
-// Función para iniciar sesión
+
+
+
 function iniciarSesion(usuario, contrasena) {
-    // Aquí podrías realizar la autenticación con un servidor o simplemente verificar las credenciales en el cliente
-    // En este ejemplo, consideramos un usuario válido con las credenciales "usuario" y "contrasena"
+
     if (usuario === "usuario" && contrasena === "contrasena") {
-        // Almacenar una señal de sesión en localStorage
+     
         localStorage.setItem("sesionIniciada", "true");
         return true;
     }

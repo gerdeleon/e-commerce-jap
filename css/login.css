@@ -1,16 +1,14 @@
 
-
 .form {
     background-color: white;
     width: 350px;
     height: 450px;
     border-radius: 30px;
     margin-top: 5%;
-    margin-left: 41%;
+   /* margin-left: 41%;*/
     box-shadow: 15px 15px 300px rgb(79, 79, 125);
     text-align:center;
     align-items: center;
-
 }
 
 
@@ -26,10 +24,11 @@
     height: 130px;
     border-radius: 50%;
     margin-top: -50px;
+    
 }
 
 h1 {
-    font-size: 50px;
+    font-size: 45px;
     margin-top: -10%;
     color: orange;
     margin-bottom: 0%;
@@ -38,15 +37,16 @@ h1 {
 h2 {
     margin-top: -5%;
     margin-bottom: 0%;
-    font-size: 45px;
+    font-size: 40px;
     color: rgb(79, 79, 125);
+    padding: 10px
 }
 
 h3 {
     margin: 0%;
     color:rgb(79, 79, 125);
 }
-.form .form-label {
+/*.form .form-label {
     margin-top: 0px;
     padding: 0%;
     font-weight: bold;
@@ -56,10 +56,11 @@ h3 {
     font-size: 25px;
     color: transparent;
     
-}
+}*/
 
 .form .form-check-label {
-   font-size: small;
+   
+   font-size: 14px;
    color:   rgb(0, 0, 0);
    text-align: center;
  padding-bottom: 0px;
@@ -74,6 +75,8 @@ h3 {
     font-size: 16px;
     width: 300px;
     color: rgb(79, 79, 125);
+    margin-top:27px;
+    
 }
 
 .btn {
@@ -102,12 +105,12 @@ h3 {
  }
  .registro .Btn {
     border: none;
-    height: 90px;
+    height: 50px;
     width: 200px;
     background: rgb(79, 79, 125);
     color: white;
     font-size: 15px;
-    border-radius: 20px;
+    border-radius: 10px;
     transition: background-color 0.5s;
     align-items: center;
  }
@@ -129,12 +132,12 @@ h3 {
 
 
 footer p {
-    margin: 0px;
-    color: rgb(100, 100, 100);
+    margin: 2px;
+    color: rgb(80, 80, 80);
     font-size: 15px;    
 }
 .fin {
-    background-color:rgb(245, 245, 245, 80%);
+    background-color:#f8f9fa;
     max-height: 20px;
     overflow: hidden;
 }

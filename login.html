@@ -17,7 +17,7 @@ body {
     </style>
 <body>
    
-    <div class="form">
+    <center> <div class="form" >
 
         <form onsubmit="return validarFormulario();" action="procesar_formulario.php" method="post" id="formulario-login">
             <img src="img/logoLogin.jpg" class="log" alt="login logo"> 
@@ -25,24 +25,21 @@ body {
             <h2> e-mercado</h2>
             <h3> ¡Tu e-commerce favorito!</h3>
             <div class="contenido">
-                <label for="userName" class="form-label">Usuario</label>
+                <div id="datos">
                 <input type="email" class="form-control" id="usuario" placeholder="Ingrese su Correo"required> <br>
-
-
-                <label for="contrasena" class="form-label" >Contraseña</label>
                 <input type="password" class="form-control" id="contrasena" placeholder="Ingrese su Contraseña" required> <br> <br>
-
-                <input type="checkbox" class="form-check-input" id="recordar"> <br>
+            </div>
+                <input type="checkbox" class="form-check-input" id="recordar">
                 <label class="form-check-label" for="recordar">Recordar usuario y contraseña</label>
                 <br>
                 <br> 
-                <input type="submit" value="Ingresar" target="_blank" class="btn">
+                <input id="ingresar" type="submit" value="Ingresar" target="_blank" class="btn">
                 <br>
                 <br>
                 <br>
             </div>
         </form>
-    </div>
+    </div>  </center>
     <script>
         document.getElementById("formulario-login").addEventListener("submit", function (event) {
             event.preventDefault();
