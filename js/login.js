@@ -1,4 +1,27 @@
-function validarFormulario() {
+document.addEventListener("DOMContentLoaded", function () {
+    const loginButton = document.getElementById("login-button");
+    loginButton.addEventListener("click", function () {
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+        
+        // Simulación de verificación de inicio de sesión
+        if (username === "usuario" && password === "contraseña") {
+            window.location.href = "index.html"; // Redirige a la página principal
+        } else {
+            alert("Credenciales incorrectas. Inténtalo de nuevo.");
+        }
+    });
+});
+
+    
+    
+    
+    
+    
+    
+    
+    
+    /*function validarFormulario() {
     var usuario = document.getElementById("usuario").value;
     var contrasena = document.getElementById("contrasena").value;
     
@@ -33,4 +56,4 @@ function verificarSesion() {
 // Función para cerrar sesión
 function cerrarSesion() {
     localStorage.removeItem("sesionIniciada");
-}
+}*/
