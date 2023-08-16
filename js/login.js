@@ -1,78 +1,36 @@
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>eMercado - Todo lo que busques está aquí</title>
-  <link href="css/login.css" rel="stylesheet"> 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- 
-</head>
-<style> 
-body {
-    background-image: url(img/fondoLogin.png);
-    background-size: cover;
-}
-    </style>
-<body>
-   
-    <div class="form">
-
-        <form onsubmit="return validarFormulario();" action="procesar_formulario.php" method="post" id="formulario-login">
-            <img src="img/logoLogin.jpg" class="log" alt="login logo"> 
-            <h1> Inicio de Sesión </h1>
-            <h2> e-mercado</h2>
-            <h3> ¡Tu e-commerce favorito!</h3>
-            <div class="contenido">
-                <label for="userName" class="form-label">Usuario</label>
-                <input type="email" class="form-control" id="usuario" placeholder="Ingrese su Correo"required> <br>
-
-
-                <label for="contrasena" class="form-label" >Contraseña</label>
-                <input type="password" class="form-control" id="contrasena" placeholder="Ingrese su Contraseña" required> <br> <br>
-
-                <input type="checkbox" class="form-check-input" id="recordar"> <br>
-                <label class="form-check-label" for="recordar">Recordar usuario y contraseña</label>
-                <br>
-                <br> 
-                <input type="submit" value="Ingresar" target="_blank" class="btn">
-                <br>
-                <br>
-                <br>
-            </div>
-        </form>
-    </div>
-    <script>
-        document.getElementById("formulario-login").addEventListener("submit", function (event) {
-            event.preventDefault();
-            
-            var usuario = document.getElementById("usuario").value;
-            var contrasena = document.getElementById("contrasena").value;
-            
-            if (iniciarSesion(usuario, contrasena)) {
-                // Redirigir a la página principal después de iniciar sesión
-                window.location.href = "index.html";
-            } else {
-                alert("Credenciales inválidas");
-            }
-        });
-    </script>
+function validarFormulario() {
+    var usuario = document.getElementById("usuario").value;
+    var contrasena = document.getElementById("contrasena").value;
     
-    <div class="registro">  
-       <center> <p class="reg"> ¿ Aún no estás registrado ? </p> </center>
-        <button class="Btn" type="button" id="RegBtn">Registrate Ahora!</button> 
-    </div>
+    if (usuario === "" || contrasena === "") {
+        alert("Por favor, completa todos los campos.");
+        return false;
+    }
+    
+    // Abrir una nueva pestaña con index.html
+    window.open("index.html", "_blank");
+    
+    return true;
+}
 
-    <div class="fin"> 
-       <footer class="pie">
-          <p><span class="left">Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a> - Grupo 256 Desarrollo Web</span><span class="right">&copy;Subgrupo 6 2023</span></p>
-        </div>
+// Función para iniciar sesión
+function iniciarSesion(usuario, contrasena) {
+    // Aquí podrías realizar la autenticación con un servidor o simplemente verificar las credenciales en el cliente
+    // En este ejemplo, consideramos un usuario válido con las credenciales "usuario" y "contrasena"
+    if (usuario === "usuario" && contrasena === "contrasena") {
+        // Almacenar una señal de sesión en localStorage
+        localStorage.setItem("sesionIniciada", "true");
+        return true;
+    }
+    return false;
+}
 
-       </footer>
-    </div>  
+// Función para verificar si se ha iniciado sesión
+function verificarSesion() {
+    return localStorage.getItem("sesionIniciada") === "true";
+}
 
-  <script src="js/login.js"></script>
-</body>
-
-</html>
+// Función para cerrar sesión
+function cerrarSesion() {
+    localStorage.removeItem("sesionIniciada");
+}
