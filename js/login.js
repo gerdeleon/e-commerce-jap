@@ -1,37 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const formulario = document.getElementById("formulario-login");
-  formulario.addEventListener("submit", function (event) {
-    event.preventDefault();
-
-    const usuario = document.getElementById("usuario").value;
-    const contrasena = document.getElementById("contrasena").value;
-
-    // Simulación de función para iniciar sesión
-    if (iniciarSesion(usuario, contrasena)) {
-      // Redirigir a la página principal después de iniciar sesión
-      window.location.href = "index.html";
-    } else {
-      alert("Credenciales inválidas");
-    }
-  });
-});
-
-function iniciarSesion(usuario, contrasena) {
-  // Implementa la lógica de autenticación aquí
-  // Debe retornar true si las credenciales son válidas, de lo contrario false
-  // Ejemplo ficticio:
-  return usuario === "usuario" && contrasena === "contrasena";
-}
-
-    
-    
-    
-    
-    
-    
-    
-    
-    /*function validarFormulario() {
+  function validarFormulario() {
     var usuario = document.getElementById("usuario").value;
     var contrasena = document.getElementById("contrasena").value;
     
@@ -66,4 +34,4 @@ function verificarSesion() {
 // Función para cerrar sesión
 function cerrarSesion() {
     localStorage.removeItem("sesionIniciada");
-}*/
+}
