@@ -1,5 +1,9 @@
 document.addEventListener("DOMContentLoaded", function(){
-    document.getElementById("autos").addEventListener("click", function() {
+    window.onload=function(){
+        if(!verificarSesion()){
+            window.location.href="login.html"
+    });   
+        document.getElementById("autos").addEventListener("click", function() {
         localStorage.setItem("catID", 101);
         window.location = "products.html"
     });
