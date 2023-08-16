@@ -36,7 +36,7 @@ function fetchProducts() {
         .catch((error) => {
             console.error("Error al obtener los productos:", error);
         });
-}
+}//probar que la funcion fetch sea async
 
 
 /*document.addEventListener("DOMContentLoaded", function () {
