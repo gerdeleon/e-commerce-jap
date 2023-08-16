@@ -1,17 +1,27 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const loginButton = document.getElementById("botonLogin");
-    loginButton.addEventListener("click", function () {
-        const username = document.getElementById("usuario").value;
-        const password = document.getElementById("contraseña").value;
-        
-        // Simulación de verificación de inicio de sesión
-        if (username === "usuario" && password === "contraseña") {
-            window.location.href = "index.html"; // Redirige a la página principal
-        } else {
-            alert("Credenciales incorrectas. Inténtalo de nuevo.");
-        }
-    });
+  const formulario = document.getElementById("formulario-login");
+  formulario.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const usuario = document.getElementById("usuario").value;
+    const contrasena = document.getElementById("contrasena").value;
+
+    // Simulación de función para iniciar sesión
+    if (iniciarSesion(usuario, contrasena)) {
+      // Redirigir a la página principal después de iniciar sesión
+      window.location.href = "index.html";
+    } else {
+      alert("Credenciales inválidas");
+    }
+  });
 });
+
+function iniciarSesion(usuario, contrasena) {
+  // Implementa la lógica de autenticación aquí
+  // Debe retornar true si las credenciales son válidas, de lo contrario false
+  // Ejemplo ficticio:
+  return usuario === "usuario" && contrasena === "contrasena";
+}
 
     
     
