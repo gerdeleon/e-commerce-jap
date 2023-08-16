@@ -1,3 +1,6 @@
+document.addEventListener('DOMContentLoaded', function() {
+window.location.href = 'login.html'
+});
 document.addEventListener("DOMContentLoaded", function () {
 });
 const usernameInput = document.getElementById('usuario');
