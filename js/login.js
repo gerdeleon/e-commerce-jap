@@ -25,6 +25,7 @@ loginButton.addEventListener('click', () => {
 });
 
 function validarFormulario() {
+
     var usuario = document.getElementById("usuario").value;
     var contrasena = document.getElementById("contrasena").value;
     
