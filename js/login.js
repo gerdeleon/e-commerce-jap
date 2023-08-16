@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     const loginButton = document.getElementById("login-button");
     loginButton.addEventListener("click", function () {
-        const username = document.getElementById("username").value;
-        const password = document.getElementById("password").value;
+        const username = document.getElementById("usuario").value;
+        const password = document.getElementById("contraseña").value;
         
         // Simulación de verificación de inicio de sesión
         if (username === "usuario" && password === "contraseña") {
