@@ -17,5 +17,31 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("muebles").addEventListener("click", function () {
       localStorage.setItem("catID", 103);
       window.location = "products.html";
-    });
-  });
+    });
+  }); 
+
+
+  
+  window.onload = function () {
+      if (!verificarSesion()) {
+          window.location.href = "login.html";
+      }
+  };
+  const storedUsername = localStorage.getItem('usuario');
+  const usernameDisplay = document.getElementById('usuario-prueba');
+
+    if (storedUsername) {
+        usernameDisplay.textContent = `${storedUsername}`;
+    }
+
+ /*   function iniciarSesionBtn(usuario, contrasena) {
+
+      if (usuario === "storedUsername" && contrasena === "contrasena") {
+       
+          localStorage.setItem("username", "true");
+          return window.open("index.html", "_blank");
+      }
+      usernameDisplay.innerHTML = '<a href="login.html">Iniciar Sesión</a>';
+  } */
+ 
+    

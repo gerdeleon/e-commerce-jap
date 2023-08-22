@@ -32,6 +32,7 @@
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="login.html" id="usuario-prueba"><button onclick="login()"></button></a>
           </li>
         </ul>
       </div>
@@ -87,20 +88,12 @@
       <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
     </div>
   </footer>
-  
+
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/index.js"></script>
   <script src="js/init.js"></script>
   <script src="login.js"></script>
-  <script>
-      // Verificar si se ha iniciado sesión al cargar la página
-      window.onload = function () {
-          if (!verificarSesion()) {
-              // Redirigir al formulario de inicio de sesión
-              window.location.href = "login.html";
-          }
-      };
-  </script>
+  
 </body>
 
 </html>
