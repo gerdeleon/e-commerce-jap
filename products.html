@@ -13,6 +13,7 @@
 </head>
 
 <body>
+   
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
     <div class="container">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -36,11 +37,45 @@
       </div>
     </div>
   </nav>
+  <br>
+  <center> 
+    <input type="search" name="buscador" id="buscador" placeholder="Buscar...">
+    <br>
+    <ul id="results"></ul>
+  </center> 
+  <br>
+  <center> <div id="filtroPrecios">
+    <label for="price-range">Precio:</label>
+    <input type="number" id="min-price" placeholder="Mínimo">
+    <input type="number" id="max-price" placeholder="Máximo">
+    
+    <button onclick="applyPriceFilter()" class="btn btn-light">Aplicar</button>
+    
+    <button onclick="sortByPrice('asc')" class="btn btn-light">Precio Ascendente</button>
+    
+  <button onclick="sortByPrice('desc')" class="btn btn-light">Precio Descendente</button>
+  
+  <button onclick="sortByRelevance('desc')" class="btn btn-light">Más Vendidos</button>
+
+  
+    <input type="radio" class="btn-check" name="options" id="sortAsc">
+            <label class="btn btn-light" for="sortAsc"><i class="fas fa-sort-amount-up mr-1"></i></label>
+            <input type="radio" class="btn-check" name="options" id="sortDesc">
+            <label class="btn btn-light" for="sortDesc"><i class="fas fa-sort-amount-down mr-1"></i></label>
+            <input type="radio" class="btn-check" name="options" id="sortByCount" checked>
+          
+  </div> </center>
+
+  
   <main class="pb-5 container">
     <div class="container">
-      <h2 class="text-center mt-4">Productos de la categoría: Autos</h2>
+      
+      <h2 class="text-center mt-4">Listado de productos de esta categoría</h2> <br>
+      
       <div class="product-list">
+        
       </div>
+      
       <!---<div class="alert alert-danger text-center" role="alert">
         <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
       </div>--> 
@@ -63,9 +98,11 @@
       <div></div>
     </div>
   </div>
+
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/products.js"></script>
+  <script src="categories.js"></script>
 </body>
 
 </html>
