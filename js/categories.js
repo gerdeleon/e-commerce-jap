@@ -66,7 +66,6 @@ function showCategoriesList(){
             </div>
             `
         }
-
         document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
     }
 }
@@ -140,50 +139,4 @@ document.addEventListener("DOMContentLoaded", function(e){
 
         showCategoriesList();
     });
-
-
-// filtro por rango de precio
-
-    
-function applyPriceFilter() {
-    const minPrice = parseFloat(document.getElementById('min-price').value);
-    const maxPrice = parseFloat(document.getElementById('max-price').value);
-
-    // Obtener los productos y ocultar/mostrar según el rango de precio
-    const products = document.getElementsByClassName('product-card');
-    for (const product of products) {
-        const productPrice = parseFloat(product.getAttribute('data-price'));
-        if (productPrice >= minPrice && productPrice <= maxPrice) {
-            product.style.display = 'block';
-        } else {
-            product.style.display = 'none';
-        }
-    }
-}
-function sortByPrice(order) {
-    const productsContainer = document.getElementById('products-container');
-    const products = Array.from(productsContainer.getElementsByClassName('product-card'));
-    
-    products.sort((a, b) => {
-        const priceA = parseFloat(a.getAttribute('data-price'));
-        const priceB = parseFloat(b.getAttribute('data-price'));
-        return order === 'asc' ? priceA - priceB : priceB - priceA;
-    });
-
-    products.forEach(product => productsContainer.appendChild(product));
-}
-
-function sortByRelevance() {
-    const productsContainer = document.getElementById('products-container');
-    const products = Array.from(productsContainer.getElementsByClassName('product-card'));
-
-    products.sort((a, b) => {
-        const relevanceA = parseInt(a.getAttribute('data-relevance'));
-        const relevanceB = parseInt(b.getAttribute('data-relevance'));
-        return relevanceB - relevanceA;
-    });
-
-    products.forEach(product => productsContainer.appendChild(product));
-}
-
 });
