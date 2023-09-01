@@ -32,16 +32,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (storedUsername) {
         usernameDisplay.textContent = `${storedUsername}`;
-    }
-
- /*   function iniciarSesionBtn(usuario, contrasena) {
-
-      if (usuario === "storedUsername" && contrasena === "contrasena") {
-       
-          localStorage.setItem("username", "true");
-          return window.open("index.html", "_blank");
-      }
-      usernameDisplay.innerHTML = '<a href="login.html">Iniciar Sesión</a>';
-  } */
- 
-    
+    }   

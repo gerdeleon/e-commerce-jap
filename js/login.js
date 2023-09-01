@@ -41,8 +41,6 @@ function validarFormulario() {
 }
 
 
-
-
 function iniciarSesion(usuario, contrasena) {
 
     if (usuario === "usuario" && contrasena === "contrasena") {
@@ -53,11 +51,9 @@ function iniciarSesion(usuario, contrasena) {
     return false;
 }
 
-
 function verificarSesion() {
     return localStorage.getItem("username") === "true";
 }
-
 
 function cerrarSesion() {
     localStorage.removeItem("username");

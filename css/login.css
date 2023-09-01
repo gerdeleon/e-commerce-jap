@@ -6,7 +6,7 @@
     border-radius: 30px;
     margin-top: 5%;
    /* margin-left: 41%;*/
-    box-shadow: 15px 15px 300px rgb(79, 79, 125);
+    box-shadow: 15px 15px 300px rgb(0, 0, 0);
     text-align:center;
     align-items: center;
 }
@@ -29,8 +29,8 @@
 
 h1 {
     font-size: 45px;
-    margin-top: -10%;
-    color: orange;
+    margin-top: -3%;
+    color: #545454;
     margin-bottom: 0%;
 }
 
@@ -38,13 +38,13 @@ h2 {
     margin-top: -5%;
     margin-bottom: 0%;
     font-size: 40px;
-    color: rgb(79, 79, 125);
+    color: #545454;
     padding: 10px
 }
 
 h3 {
     margin: 0%;
-    color:rgb(79, 79, 125);
+    color:#545454;
    font-size: 14px;
    color:   rgb(0, 0, 0);
    text-align: center;
@@ -59,7 +59,7 @@ h3 {
     height: 35px;
     font-size: 16px;
     width: 300px;
-    color: rgb(79, 79, 125);
+    color: #545454;
     margin-top:27px;
     
 }
@@ -78,7 +78,7 @@ h3 {
 
 }
  .btn:hover {
-    background-color: rgb(79, 79, 125);
+    background-color: #545454;
  }
 
  .registro {
@@ -92,7 +92,7 @@ h3 {
     border: none;
     height: 50px;
     width: 200px;
-    background: rgb(79, 79, 125);
+    background: #545454;
     color: white;
     font-size: 15px;
     border-radius: 10px;
@@ -118,13 +118,14 @@ h3 {
 
 footer p {
     margin: 2px;
-    color: rgb(80, 80, 80);
+    color: #545454;
     font-size: 15px;    
 }
 .fin {
     background-color:#f8f9fa;
     max-height: 20px;
     overflow: hidden;
+    margin-top: 5cm;
 }
 
 .left{
