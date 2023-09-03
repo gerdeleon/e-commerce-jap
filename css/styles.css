@@ -203,7 +203,7 @@ a.custom-card:hover {
   padding: 10px;
   border: 1px solid #ccc;
 }
-                /*probando css */
+               /*probando css */
                 body {
                   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
                   background-color: #f0f0f0;
@@ -211,50 +211,43 @@ a.custom-card:hover {
               
                 .album {
                   padding-top: 50px;
+                  
                 }
               
                 .custom-card {
                   position: relative;
                   overflow: hidden;
-                  border-radius: 10px;
-                  width: 200px;
+                  border-radius: 50%;
+                  width: 180px;
                   height: 180px;
                   cursor: pointer;
                   transition: transform 0.3s, box-shadow 0.3s;
-                  border: 4px solid #fec87b;
+                  border: none;
                   text-align: center;
                   transition: 0.6s;
+                  outline: none;
                 }
               #autos {
-                  background-image: linear-gradient(
-                    0deg,
-                    rgba(0,0,0,0.5),
-                    rgba(0,0,0,0.5)
-                  ),url(/img/cars_index.jpg);
-                  background-size: cover;
+                  background-image: url(/img/car-index-new.png);
+                  background-size:cover;
                   background-repeat: no-repeat;
+
               }
               #juguetes{
-                  background-image: linear-gradient(
-                    0deg,
-                    rgba(0,0,0,0.5),
-                    rgba(0,0,0,0.5)
-                  ), url(/img/toys_index.jpg);  
+                  background-image:  url(/img/toys-index-new.png);  
                   background-size: cover;
-                  background-repeat: no-repeat;           
+                  background-repeat: no-repeat;
+                  transition: 0.6s;           
                 }
 
               #muebles{
-                background-image: linear-gradient(
-                  0deg,
-                  rgba(0,0,0,0.5),
-                  rgba(0,0,0,0.5)
-                ),
-                url(/img/furniture_index.jpg);
+                background-image:
+                url(/img/2-01.png);
                 background-size: cover;
                 background-repeat: no-repeat;
               }
                 .custom-card h3 {
+                  display: none;
                   margin: 0;
                   padding: 10px;
                   padding-left: 3px;
@@ -266,37 +259,69 @@ a.custom-card:hover {
                 
                 
               
-                .custom-card p {
+                .custom-card p{
                   margin: 0;
                   padding: 10px;
                   color: transparent;
                   opacity: 0; /* Cambiado para ocultar inicialmente */
                   transform: translateY(-100%); /* Cambiado para ocultar inicialmente */
                   transition: opacity 0.3s, transform 0.3s; /* Agregado para el efecto de despliegue */
+                  
                 }
               
                 .custom-card:hover {
                   transform: scale(1.05);
-                  height: 250px;
-                  width: 300px;
+                  height: 230px;
+                  width: 250px;
+                  border-radius: 5%;
+                  border: 1.5px solid #545454;
+                }
+                #juguetes:hover{
+                  background-image: none;
+                  background-size: none;
+                }
+                #autos:hover{
+                  background-image: none;
+                  background-size: none;
+                }
+                #muebles:hover{
+                  background-image: none;
+                  background-size: none;
                 }
               
-                .custom-card:hover h3 {
-                  
-                  opacity: 0; /* Cambiado para ocultar inicialmente */
-                  transform: translateY(-100%); /* Cambiado para ocultar inicialmente */
-                  transition: opacity 0.3s, transform 0.3s; /* Agregado para el efecto de despliegue */
-                  display: none;
-                }
+                
               
-                .custom-card:hover p {
+                .custom-card:hover p{
                   margin-top: 20px;
                   padding-top: -80px;
                   opacity: 1; /* Mostrar el título al hacer hover */
                   transform: translateY(0); /* Mostrar el título al hacer hover */
                   background-color: transparent;
                   color: #000;
+                  display: block;
+                }
+                .custom-card:hover h3{
+                  display: block;
+                }
+                #btnmas {
+                  border: none;
+                  height: 50px;
+                  width: 200px;
+                  background: #545454;
+                  color: rgb(255, 255, 255);
+                  font-size: 20px;
+                  border-radius: 10px;
+                  transition: background-color 0.5s;
+                  padding: 10px, 10px;
+                  text-decoration: none;
+                  margin-left: 38%;
+                  margin-top: 15px;
                   
+                }
+
+                #btnmas:hover {
+                  background-color: #fec87b;
+                  color: #000;
                 }
                                
 
