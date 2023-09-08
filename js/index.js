@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }); 
 
 
-  
+ 
   window.onload = function () {
       if (!verificarSesion()) {
           window.location.href = "login.html";
