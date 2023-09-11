@@ -323,6 +323,34 @@ a.custom-card:hover {
                   background-color: #fec87b;
                   color: #000;
                 }
+
+                #img{
+                  width: 1200px;
+                }
+
+                .img-thumbnail:hover {
+                  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+                  transform: scale(1.2);
+                  transition-duration: 1,85s;
+                }
+                
+
+              
                                
 
+.imgStyle {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+                
+.imgStyle{
+  line-height:0;
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  column-count: 2;
+  column-gap: 10px;
+}
 
+.subtitulo{
+  font-weight: bold;
+}
