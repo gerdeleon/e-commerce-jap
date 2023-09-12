@@ -354,3 +354,51 @@ a.custom-card:hover {
 .subtitulo{
   font-weight: bold;
 }
+          /*comentarios*/
+#comentario{
+  margin: 10px;
+ 
+  border-radius: 16px;
+  padding: 5px;
+  
+}
+.card-mt-3{
+  border-bottom: 2px solid rgb(255, 153, 0);
+  padding-top: 20px;
+}
+p {
+  margin-bottom: 0px;
+}
+.comentario {
+  border-bottom: 2px solid rgb(255, 153, 0);
+  padding-top: 20px;
+
+}
+.comentario:first-child {
+  border-top: 2px solid rgb(255, 153, 0);
+}
+
+
+.mt-4{
+  text-align: center; 
+}
+
+textarea.form-control {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  width: 500px;
+  margin: 10px;
+  
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.rating.mt-2{
+  margin: 10px;
+  align-items: center;
+}
