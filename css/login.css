@@ -1,14 +1,18 @@
-
+body {
+    
+    margin: 0;
+}
 .form {
     background-color: white;
     width: 400px;
     height: 480px;
     border-radius: 30px;
+    margin: auto;
     margin-top: 5%;
-   /* margin-left: 41%;*/
     box-shadow: 20px 20px 300px #000000;
     text-align:center;
     align-items: center;
+    
 }
 
 
@@ -16,6 +20,7 @@
     margin-top: 5%;
     margin-bottom: 0%;
     text-align: center;
+    background-color: #f8f9fa;
 }
 
 
@@ -23,7 +28,7 @@
     width: 130px;
     height: 130px;
     border-radius: 50%;
-    margin-top: -50px;
+    margin-top: -65px;
     
 }
 
@@ -134,4 +139,111 @@ footer p {
 .right{
 float:right;
 
+}
+
+            /* Responsive*/
+ @media (max-width: 768px) {
+  body{  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+ }
+.form {
+    height: 380px;
+    margin: auto;
+    margin-top: 20%;
+    box-shadow: 7px 7px 80px #000000;
+ 
+    width: 80%; /* Reducimos el ancho del formulario en pantallas pequeñas */
+   /* height: auto;*/
+}
+
+.form .log {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    
+}
+
+h1 {
+    font-size: 36px;
+    margin-top: -3%;
+    color: #545454;
+    
+}
+
+h2 {
+   
+    
+    font-size: 26px;
+    color: #545454;
+    padding: 10px
+}
+
+h3 {
+    margin: 0%;
+    color:#545454;
+   font-size: 14px;
+   color:   rgb(0, 0, 0);
+   text-align: center;
+
+    
+}
+
+.form input[type="email"],
+.form input[type="password"] {
+    height: 35px;
+    font-size: 14px;
+    width: 0%;
+}
+
+.btn {
+    height: 40px;
+    width: 180px;
+    background: orange;
+    color: rgb(255, 255, 255);
+    font-size: 23px;
+}
+ .btn:hover {
+    background-color: darkorange;
+ }
+ 
+ .registro {
+    color: aliceblue;
+    padding: 15px;
+    margin-top: 0px;
+    text-align:center;
+    align-items: center;
+ }
+ 
+ .registro .Btn {
+    border: none;
+    height: 50px;
+    width: 160px;
+    background: #000000;
+    color: white;
+    font-size: 14px;
+    border-radius: 10px;
+    transition: background-color 0.5s;
+    align-items: center;
+    border-bottom: 2.5px solid #707070 ;
+    border-right: 2.5px solid #707070 
+
+ }
+
+ .Btn:hover {
+    background-color: #545454;
+ }
+ 
+
+  .reg {
+    background-color:transparent;
+    color:aliceblue;
+    font-size: 18px;
+    width: 6cm;
+    
+}
+.fin {
+    text-align: center;
+    background-color: #f8f9fa;
+}
 }
