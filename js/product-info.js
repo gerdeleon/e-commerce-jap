@@ -45,21 +45,23 @@ function agregarComentario(comentario) {
   const comentarioDiv = document.createElement("div");
   comentarioDiv.classList.add("card-body");
 
-  const descripcionP = document.createElement("p");
-  descripcionP.innerHTML = `<strong>Usuario:</strong> ${comentario.user}`;
-  comentarioDiv.appendChild(descripcionP);
-  descripcionP.classList.add("card-header");
+  const usuarioP = document.createElement("p");
+  usuarioP.innerHTML = `<strong>Usuario:</strong> ${comentario.user}`;
+  comentarioDiv.appendChild(usuarioP);
+  usuarioP.classList.add("card-header");
+
+  const comentarioP = document.createElement("p");
+  comentarioP.innerHTML = `<strong>Comentario:</strong> ${comentario.description}`;
+  comentarioDiv.appendChild(comentarioP);
+  comentarioP.classList.add("card-body");
 
   const puntuacionP = document.createElement("p");
-  puntuacionP.innerHTML = `<strong>Comentario:</strong> ${comentario.description}`;
+  puntuacionP.innerHTML = `<strong>Puntuacion:</strong> ${obtenerEstrellas(comentario.score)}</div>`;
   comentarioDiv.appendChild(puntuacionP);
   puntuacionP.classList.add("card-body");
 
-  const usuarioP = document.createElement("p");
-  usuarioP.innerHTML = `<strong>Puntuacion:</strong> ${comentario.score}</div>`;
-  comentarioDiv.appendChild(usuarioP);
-  usuarioP.classList.add("card-body");
 
+  
   const fechaHoraP = document.createElement("p");
   fechaHoraP.innerHTML = `<strong>Fecha y Hora:</strong> ${comentario.dateTime} <br> <br>`;
   comentarioDiv.appendChild(fechaHoraP);
@@ -82,6 +84,18 @@ fetch(jsonUrl)
 .catch(error => {
   console.error("Error al cargar el JSON:", error);
   });
+
+
+  // Estrellas Comentarios Cargados desde el Json
+  function obtenerEstrellas(puntuacion) {
+    const estrellas = '★'.repeat(puntuacion); // Crea una cadena de estrellas basada en la puntuación
+    const estrellasVacias = '☆'.repeat(5 - puntuacion); // Crea una cadena de estrellas vacías para completar 5 estrellas
+    const estrellasHTML = `<span style="color: orange">${estrellas}</span><span>${estrellasVacias}</span>`;
+    return estrellasHTML
+  }
+
+  
+    
 });
 
 

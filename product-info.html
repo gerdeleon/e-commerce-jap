@@ -50,21 +50,30 @@
     <h1 class="my-4">Comentarios del Producto</h1>
     <div id="comentario" class="my-4">
     </div>
-
+    
     <form class="form">
-    <div class="mb-3">
-      <input type="text" id="nombre" class="form-control" placeholder="Nombre de usuario">
-    </div>
+      <div class="mb-3">
+          <input type="text" id="nombre" class="form-control" placeholder="Nombre de usuario">
+      </div>
       <textarea id="comentario-text" class="form-control" placeholder="Dejanos tu opinión..." rows="4"></textarea>
       <div class="rating mb-3">
-        <input type="radio" name="rating" value="1"> 1
-        <input type="radio" name="rating" value="2"> 2
-        <input type="radio" name="rating" value="3"> 3
-        <input type="radio" name="rating" value="4"> 4
-        <input type="radio" name="rating" value="5"> 5
+          <input type="radio" name="rating" value="1">
+          <span class="star"></span>
+          <input type="radio" name="rating" value="2">
+          <span class="star"></span>
+          <input type="radio" name="rating" value="3">
+          <span class="star"></span>
+          <input type="radio" name="rating" value="4">
+          <span class="star"></span>
+          <input type="radio" name="rating" value="5">
+          <span class="star"></span>
       </div>
       <button type="button" onclick="agregarComentario()" class="btn btn-primary mt-2">Enviar comentario</button>
-    </form>
+  </form>
+  
+  
+  
+  <div id="comentario"></div>
     
   </main>
   
@@ -84,35 +93,54 @@
       <div></div>
     </div>
   </div>
+  
+
   <script>
-  function agregarComentario() {
-    const nombreUsuario = document.getElementById("nombre").value;
-    const comentarioTexto = document.getElementById("comentario-text").value;
-    const puntuacion = document.querySelector('input[name="rating"]:checked').value;
-    const fecha = new Date()
-    const fechaFormateada = fecha.toISOString().slice(0, 19).replace("T", " ");
+    function agregarComentario() {
+        const nombreUsuario = document.getElementById("nombre").value;
+        const comentarioTexto = document.getElementById("comentario-text").value;
+        const puntuacion = document.querySelector('input[name="rating"]:checked').value;
+        const fecha = new Date()
+        const fechaFormateada = fecha.toISOString().slice(0, 19).replace("T", " ");
 
-    if (nombreUsuario && comentarioTexto && puntuacion) {
-      const comentarioHTML = `
-        <div class="card mt-3">
-          <div class="card-header"><strong>Usuario:</strong> ${nombreUsuario}</div>
-          <div class="card-body"><strong>Comentario:</strong> ${comentarioTexto}</div>
-          <div class="card-body"><strong>Puntuación:</strong> ${puntuacion}</div>
-          <div class="card-body"><strong>Fecha y Hora: </strong>${fechaFormateada}</div>  
-        </div>
-      `;
+        if (nombreUsuario && comentarioTexto && puntuacion) {
+            const estrellas = '★'.repeat(parseInt(puntuacion));
+            const estrellasVacias = '☆'.repeat(5 - parseInt(puntuacion));
+            const comentarioHTML = `
+                <div class="card mt-3">
+                    <div class="card-header"><strong>Usuario:</strong> ${nombreUsuario}</div>
+                    <div class="card-body"><strong>Comentario:</strong> ${comentarioTexto}</div>
+                    <div class="card-body"><strong>Puntuación:</strong> 
+                        <span class="star-orange">${estrellas}</span>
+                        <span>${estrellasVacias}</span>
+                    </div>
+                    <div class="card-body"><strong>Fecha y Hora: </strong>${fechaFormateada}</div>
+                </div>
+            `;
 
-      document.getElementById("comentario").insertAdjacentHTML("beforeend", comentarioHTML);
-      
-      // Limpia el formulario después de agregar el comentario
-      document.getElementById("nombre").value = "";
-      document.getElementById("comentario-text").value = "";
-      document.querySelector('input[name="rating"]:checked').checked = false;
-    } else {
-      alert("Por favor, completa todos los campos.");
+            document.getElementById("comentario").insertAdjacentHTML("beforeend", comentarioHTML);
+
+            // Limpia el formulario después de agregar el comentario
+            document.getElementById("nombre").value = "";
+            document.getElementById("comentario-text").value = "";
+            document.querySelector('input[name="rating"]:checked').checked = false;
+        } else {
+            alert("Por favor, completa todos los campos.");
+        }
     }
-  }
 </script>
+
+<style>
+    .star {
+        color: orange;
+    }
+
+    .star-orange {
+        color: orange;
+    }
+</style>
+
+
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/product-info.js"></script>
