@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
       localStorage.setItem("catID", 103);
       window.location = "products.html";
     });
-  }); 
+  
 
 
  
@@ -33,3 +33,6 @@ document.addEventListener("DOMContentLoaded", function () {
     if (storedUsername) {
         usernameDisplay.textContent = `${storedUsername}`;
     }   
+
+
+}); 

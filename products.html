@@ -23,7 +23,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav w-100 justify-content-between">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">Inicio</a>
+            <a class="nav-link active" href="index.html">Inicio</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="categories.html">Categorías</a>
@@ -31,13 +31,21 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="login.html" id="usuario-prueba"><button onclick="login()"></button></a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="usuario-prueba" role="button" data-bs-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Nombre de Usuario
+            </a>
+            <div class="dropdown-menu" aria-labelledby="usuarioDropdown">
+              <a class="dropdown-item" href="carrito.html">Mi Carrito</a>
+              <a class="dropdown-item" href="perfil.html">Mi Perfil</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="login.html" onclick="logout()">Cerrar Sesión</a>
+            </div>
           </li>
         </ul>
       </div>
     </div>
-    
   </nav>
   <br>
  

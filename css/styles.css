@@ -30,7 +30,7 @@
   height: 50vh;
   padding: 5em inherit;
   margin-bottom: 0;
-  background-color: #53C0FB;
+  background-color: #ffffff;
   background: url('../img/portada.png');
   background-size: cover;
   background-position: center;
@@ -401,4 +401,10 @@ textarea.form-control {
 .rating.mt-2{
   margin: 10px;
   align-items: center;
+}
+#com_Product{
+  margin: none;
+  align-items: center;
+  justify-content: center;
+  display:flex;
 }

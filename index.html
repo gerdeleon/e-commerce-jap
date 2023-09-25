@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link href="css/modo-noche.css" rel="stylesheet" id="modo-noche-estilos" disabled>
   <script src="login.js"></script>
   
 </head>
@@ -31,16 +32,28 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="login.html" id="usuario-prueba"><button onclick="login()"></button></a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="usuario-prueba" role="button" data-bs-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="usuarioDropdown">
+              <a class="dropdown-item" href="carrito.html">Mi Carrito</a>
+              <a class="dropdown-item" href="perfil.html">Mi Perfil</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="login.html" onclick="logout()">Cerrar Sesión</a>
+              <a class="btn btn-link nav-link" id="modoBoton" onclick="alternarModo()">Modo Noche</a>
+              </li>
+            </div>
           </li>
+          
         </ul>
       </div>
     </div>
   </nav>
  <main>
     <div class="jumbotron text-center"></div>
-    <div class="album py-5 bg-light">
+    <div class="album py-5 bg-light" id="clases_container">
       <div class="container">
         <div class="row">
           <div class="col-md-4">
@@ -83,6 +96,47 @@
       <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
     </div>
   </footer>
+
+  <script>
+       // Función para alternar el modo y guardar la preferencia en el localStorage
+       function alternarModo() {
+  const modoBoton = document.getElementById("modoBoton");
+  const modoActual = modoBoton.textContent;
+
+  // Cambiar el texto del botón y guardar la preferencia en el localStorage
+  if (modoActual === "Modo Noche") {
+    // Cambiar al modo nocturno
+    modoBoton.textContent = "Modo Dia";
+
+    // Habilitar los estilos del modo nocturno
+    document.getElementById("modo-noche-estilos").removeAttribute("disabled");
+
+    // Guardar la preferencia en el localStorage
+    localStorage.setItem("modoPreferencia", "noche");
+  } else {
+    // Cambiar al modo día
+    modoBoton.textContent = "Modo Noche";
+
+    // Deshabilitar los estilos del modo nocturno
+    document.getElementById("modo-noche-estilos").setAttribute("disabled", true);
+
+    // Guardar la preferencia en el localStorage
+    localStorage.setItem("modoPreferencia", "noche");
+  }
+}
+
+
+function logout() {
+      
+      //Eliminar los datos del usuario del localStorage.
+      localStorage.removeItem("usuario");
+      localStorage.removeItem("contrasena");
+    
+      //Redirigir al usuario a la página de inicio de sesión.
+      window.location.href = "login.html";
+    }
+
+  </script>
 
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/index.js"></script>
