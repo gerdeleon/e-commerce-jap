@@ -122,17 +122,18 @@ document.addEventListener("DOMContentLoaded", function () {
     
     
     productRelacionadosElement.innerHTML = `
-    <div>
     
+    
+    <div class="producto1">
     <h2>${product.relatedProducts[0].name}</h2>
     <img src="img/prod${product.relatedProducts[0].id}_1.jpg" alt="product image" class="img-thumbnail" onclick="redirectToProduct(${product.relatedProducts[0].id})">
     </div>
     
-    
+    <div class="producto2">
     <h2>${product.relatedProducts[1].name}</h2>
-    <img src="img/prod${product.relatedProducts[1].id}_1.jpg" alt="product image" class="img-thumbnail" onclick="redirectToProduct(${product.relatedProducts[0].id})">
+    <img src="img/prod${product.relatedProducts[1].id}_1.jpg" alt="product image" class="img-thumbnail" onclick="redirectToProduct(${product.relatedProducts[1].id})">
     </div>
-    </div>
+    
   `;
   })
   .catch(error => console.error('Error al obtener información del producto:', error));
@@ -141,8 +142,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
    function redirectToProduct(product) {
   // Construye la URL del producto utilizando el ID
-  const productUrl = `https://japceibal.github.io/emercado-api/products/${product}.json`;
+  let productUrl = `https://japceibal.github.io/emercado-api/products/${product}.json`;
+
+ 
   
   // Redirige a la nueva página
-  window.location.href = productUrl;
+  window.location = productUrl;
 }
+
+
+//Tenemos que guardar la ID del producto seleccionado
