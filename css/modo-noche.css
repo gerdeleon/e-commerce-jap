@@ -1,163 +1,79 @@
+/* Estilos generales para el modo noche */
 body {
-    background-color: rgb(22, 22, 22);
+  font-family: 'Raleway', sans-serif;
+  background-color: #2c3e50; /* Color de fondo principal */
+  color: #ecf0f1; /* Color del texto principal */
 }
 
-
-.site-header a {
-  color: white;
-  transition: ease-in-out color .15s;
+.container {
+  max-width: 1140px;
 }
 
-.site-header .dropdown-menu a {
-  color: rgb(22, 22, 22);
+/* Encabezado en modo noche */
+.navbar {
+  background-color: #34495e; /* Color de fondo del encabezado */
+  border-bottom: 3px solid orange; /* Color de borde inferior */
 }
 
-
-
-#clases_container {
-    background-color: rgba(32, 32, 32);
-}
-
-
-
-.left {
-  float: left;
-  padding: 4px;
-  background-color: rgba(32, 32, 32, 0.5);
-}
-
-.checked {
-  color: orange;
-}
-
-               /*probando css */
-                body {
-                  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-                }
-                .custom-card{
-                    background-color: rgba(32, 32, 32)
-                }
-                .custom-card h3 {
-                  color: #b4b4b4;
-                }
-                
-                
-                
-              
-                .custom-card p{
-                  color: transparent;
-                  opacity: 0; /* Cambiado para ocultar inicialmente */
-                  transform: translateY(-100%); /* Cambiado para ocultar inicialmente */
-                  transition: opacity 0.3s, transform 0.3s; /* Agregado para el efecto de despliegue */
-                  
-                }
-              
-                .custom-card:hover {
-                  
-                  color: white;
-                  border: 2.5px solid rgb(255, 153, 0);
-                }
-                .custom-card:hover p{
-                  
-                  color: #d4d4d4;
-
-                }
-                #btnmas {
-                  border: none;
-                  height: 50px;
-                  width: 200px;
-                  background: #545454;
-                  color: rgb(255, 255, 255);
-                  font-size: 20px;
-                  border-radius: 10px;
-                  transition: background-color 0.5s;
-                  padding: 10px, 10px;
-                  text-decoration: none;
-                  margin-left: 38%;
-                  margin-top: 15px;
-                  
-                }
-
-                #btnmas:hover {
-                  background-color: #fec87b;
-                  color: #000;
-                }
-
-                #img{
-                  width: 1200px;
-                }
-
-                .img-thumbnail:hover {
-                  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-                  transform: scale(1.2);
-                  transition-duration: 1,85s;
-                }
-                
-
-              
-                               
-
-.imgStyle {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-}
-                
-.imgStyle{
-  line-height:0;
-  -webkit-column-count: 2;
-  -moz-column-count: 2;
-  column-count: 2;
-  column-gap: 10px;
-}
-
-.subtitulo{
+.navbar-brand, .nav-link {
+  color: #ecf0f1 !important; /* Color de texto en el encabezado */
   font-weight: bold;
 }
-          /*comentarios*/
-#comentario{
-  margin: 10px;
- 
-  border-radius: 16px;
-  padding: 5px;
-  
-}
-.card-mt-3{
-  border-bottom: 2px solid rgb(255, 153, 0);
-  padding-top: 20px;
-}
-p {
-  margin-bottom: 0px;
-}
-.comentario {
-  border-bottom: 2px solid rgb(255, 153, 0);
-  padding-top: 20px;
 
-}
-.comentario:first-child {
-  border-top: 2px solid rgb(255, 153, 0);
+/* Tarjetas de categorías en modo noche */
+.custom-card {
+  background-color: #34495e; /* Color de fondo de las tarjetas */
+  border-radius: 10px;
+  transition: transform 0.3s;
 }
 
-
-.mt-4{
-  text-align: center; 
+.custom-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
 }
 
-textarea.form-control {
-  display: flex;
-  align-items: center;
-  align-content: center;
-  width: 500px;
-  margin: 10px;
-  
+.custom-card h3 {
+  font-size: 24px;
+  color: #ecf0f1; /* Color del título */
 }
 
-.form {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+.custom-card p {
+  color: #bdc3c7; /* Color del texto */
 }
-.rating.mt-2{
-  margin: 10px;
-  align-items: center;
+
+/* Botón "Y mucho más!" en modo noche */
+#btnmas {
+  background-color: #34495e;
+  color: #ffffff;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 20px;
+  transition: background-color 0.3s;
+}
+
+#btnmas:hover {
+  background-color: orange;
+}
+
+/* Pie de página en modo noche */
+.text-muted {
+  background-color: #34495e; /* Color de fondo del pie de página */
+  padding: 10px 0;
+  text-align: center;
+  color: #ecf0f1;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 0%;
+}
+
+.text-muted a {
+  color: #ecf0f1;
+  text-decoration: none;
+  font-weight: normal;
+}
+
+.text-muted a:hover {
+  text-decoration: underline;
 }

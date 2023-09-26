@@ -1,152 +1,166 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>eMercado - Todo lo que busques está aquí</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>eMercado - Todo lo que busques está aquí</title>
 
-  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet">
-  <link href="css/modo-noche.css" rel="stylesheet" id="modo-noche-estilos" disabled>
-  <script src="login.js"></script>
-  
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/modo-noche.css" rel="stylesheet" id="modo-noche-estilos" disabled>
+    <script src="login.js"></script>
 </head>
-
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light p-1" style="background-color: #848893;">
-    <div class="container">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav w-100 justify-content-between">
-          <li class="nav-item">
-            <a class="nav-link active" href="index.html">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="categories.html">Categorías</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="sell.html">Vender</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="usuario-prueba" role="button" data-bs-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-            </a>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #34495e;">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">eMercado</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="categories.html">Categorías</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="sell.html">Vender</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="usuario-prueba" role="button"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="usuarioDropdown">
+                                <a class="dropdown-item" href="carrito.html">Mi Carrito</a>
+                                <a class="dropdown-item" href="perfil.html">Mi Perfil</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="login.html" onclick="logout()">Cerrar Sesión</a>
+                                <a class="btn btn-link nav-link" id="modoBoton" onclick="alternarModo()">Modo Noche</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-            <div class="dropdown-menu" aria-labelledby="usuarioDropdown">
-              <a class="dropdown-item" href="carrito.html">Mi Carrito</a>
-              <a class="dropdown-item" href="perfil.html">Mi Perfil</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="login.html" onclick="logout()">Cerrar Sesión</a>
-              <a class="btn btn-link nav-link" id="modoBoton" onclick="alternarModo()">Modo Noche</a>
-              </li>
-            </div>
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-  </nav>
- <main>
-    <div class="jumbotron text-center"></div>
-    <div class="album py-5 bg-light" id="clases_container">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            
-            <div class="card mb-4 shadow-sm custom-card cursor-active" id="autos">
-              <div class="card-body">
-                <h3>AUTOS</h3>
-                <p class="card-text">Los mejores precios en autos 0 kilómetro, de alta y media gama.</p>
-              </div>
-            </div>
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="img/Portada-01.jpg" class="d-block w-100" alt="...">
           </div>
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm custom-card cursor-active" id="juguetes">              
-              <div class="card-body">
-                <h3>JUGUETES</h3>
-                <p class="card-text">Encuentra aquí los mejores precios para niños/as de cualquier edad.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm custom-card cursor-active" id="muebles" >
-              <div class="card-body">
-                <h3>MUEBLES</h3>
-                <p class="card-text">Muebles antiguos, nuevos y para ser armados por uno mismo.</p>
-              </div>
-            </div>
+          <div class="carousel-item">
+            <img src="img/Portada-02-01.jpg" class="d-block w-100" alt="...">
           </div>
         </div>
-        <div class="row">
-          <a class="btn btn-light btn-lg btn-block" href="categories.html" id="btnmas">Y mucho más!</a>
-        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
-    </div>
-  </main>
-  <footer class="text-muted">
-    <div class="container">
-      <p class="float-end">
-        <a href="#">Volver arriba</a>
-      </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
-    </div>
-  </footer>
 
-  <script>
-       // Función para alternar el modo y guardar la preferencia en el localStorage
-       function alternarModo() {
-  const modoBoton = document.getElementById("modoBoton");
-  const modoActual = modoBoton.textContent;
+    <main>
+        <div class="jumbotron text-center"></div>
+        <div class="album py-5 bg-light" id="clases_container">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm custom-card cursor-active" id="autos">
+                            <div class="card-body">
+                                <h3>AUTOS</h3>
+                                <p class="card-text">Los mejores precios en autos 0 kilómetro, de alta y media gama.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm custom-card cursor-active" id="juguetes">
+                            <div class="card-body">
+                                <h3>JUGUETES</h3>
+                                <p class="card-text">Encuentra aquí los mejores precios para niños/as de cualquier edad.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm custom-card cursor-active" id="muebles" >
+                            <div class="card-body">
+                                <h3>MUEBLES</h3>
+                                <p class="card-text">Muebles antiguos, nuevos y para ser armados por uno mismo.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <a class="btn btn-light btn-lg btn-block" href="categories.html" id="btnmas">Y mucho más!</a>
+                </div>
+            </div>
+        </div>
+    </main>
 
-  // Cambiar el texto del botón y guardar la preferencia en el localStorage
-  if (modoActual === "Modo Noche") {
-    // Cambiar al modo nocturno
-    modoBoton.textContent = "Modo Dia";
+    <footer class="text-muted">
+        <div class="container">
+            <p class="float-end">
+                <a href="#">Volver arriba</a>
+            </p>
+            <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
+        </div>
+    </footer>
 
-    // Habilitar los estilos del modo nocturno
-    document.getElementById("modo-noche-estilos").removeAttribute("disabled");
+    <script>
+        // Función para alternar el modo y guardar la preferencia en el localStorage
+        function alternarModo() {
+            const modoBoton = document.getElementById("modoBoton");
+            const modoActual = modoBoton.textContent;
 
-    // Guardar la preferencia en el localStorage
-    localStorage.setItem("modoPreferencia", "noche");
-  } else {
-    // Cambiar al modo día
-    modoBoton.textContent = "Modo Noche";
+            // Cambiar el texto del botón y guardar la preferencia en el localStorage
+            if (modoActual === "Modo Noche") {
+                // Cambiar al modo nocturno
+                modoBoton.textContent = "Modo Día";
 
-    // Deshabilitar los estilos del modo nocturno
-    document.getElementById("modo-noche-estilos").setAttribute("disabled", true);
+                // Habilitar los estilos del modo nocturno
+                document.getElementById("modo-noche-estilos").removeAttribute("disabled");
 
-    // Guardar la preferencia en el localStorage
-    localStorage.setItem("modoPreferencia", "noche");
-  }
-}
+                // Guardar la preferencia en el localStorage
+                localStorage.setItem("modoPreferencia", "noche");
+            } else {
+                // Cambiar al modo día
+                modoBoton.textContent = "Modo Noche";
 
+                // Deshabilitar los estilos del modo nocturno
+                document.getElementById("modo-noche-estilos").setAttribute("disabled", true);
 
-function logout() {
-      
-      //Eliminar los datos del usuario del localStorage.
-      localStorage.removeItem("usuario");
-      localStorage.removeItem("contrasena");
-    
-      //Redirigir al usuario a la página de inicio de sesión.
-      window.location.href = "login.html";
-    }
+                // Guardar la preferencia en el localStorage
+                localStorage.setItem("modoPreferencia", "dia");
+            }
+        }
 
-  </script>
+        function logout() {
+            //Eliminar los datos del usuario del localStorage.
+            localStorage.removeItem("usuario");
+            localStorage.removeItem("contrasena");
 
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/index.js"></script>
-  <script src="js/init.js"></script>
-  <script src="login.js"></script>
-  
+            //Redirigir al usuario a la página de inicio de sesión.
+            window.location.href = "login.html";
+        }
+    </script>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/init.js"></script>
+    <script src="login.js"></script>
 </body>
-
-<body>
-  
-</body>
-
 </html>

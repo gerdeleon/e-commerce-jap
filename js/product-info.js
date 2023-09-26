@@ -141,14 +141,14 @@ document.addEventListener("DOMContentLoaded", function () {
    });
 
    function redirectToProduct(product) {
-  // Construye la URL del producto utilizando el ID
-  let productUrl = `https://japceibal.github.io/emercado-api/products/${product}.json`;
 
- 
-  
-  // Redirige a la nueva página
-  window.location = productUrl;
+    // Almacenar la ID del producto en LocalStorage
+    localStorage.setItem("selectedProductId", product);
+    
+    // Construye la URL del producto utilizando el ID
+    let productUrl = `https://japceibal.github.io/emercado-api/products/${product}.json`;
+
+    // Redirige a la nueva página
+    window.open(productUrl, "_blank");
 }
 
-
-//Tenemos que guardar la ID del producto seleccionado
