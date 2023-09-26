@@ -84,7 +84,7 @@ function showCategoriesList() {
                                     <h4> ${category.name} - ${category.currency} ${category.cost}</h4> 
                                     <p>${category.description}</p> 
                                 </div>
-                                <small class="text-muted"> ${category.soldCount} vendidos</small> 
+                                <small class="text"> ${category.soldCount} vendidos</small> 
                             </div>
                             <button class="btn btn-primary" onclick="setProductID(${category.id})">Más información</button>
                         </div>

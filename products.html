@@ -14,41 +14,43 @@
 
 <body>
    
-  <nav class="navbar navbar-expand-lg navbar-light p-1" style="background-color: #848893;">
-    <div class="container">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav w-100 justify-content-between">
-          <li class="nav-item">
-            <a class="nav-link active" href="index.html">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="categories.html">Categorías</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="sell.html">Vender</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="usuario-prueba" role="button" data-bs-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              Nombre de Usuario
-            </a>
-            <div class="dropdown-menu" aria-labelledby="usuarioDropdown">
-              <a class="dropdown-item" href="carrito.html">Mi Carrito</a>
-              <a class="dropdown-item" href="perfil.html">Mi Perfil</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="login.html" onclick="logout()">Cerrar Sesión</a>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #34495e;">
+        <div class="container">
+            <a class="navbar-brand" href="index.html" style="color: aliceblue;">eMercado</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="categories.html">Categorías</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sell.html">Vender</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="usuario-prueba" role="button"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="usuarioDropdown">
+                            <a class="dropdown-item" href="cart.html">Mi Carrito</a>
+                            <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="login.html" onclick="logout()">Cerrar Sesión</a>
+                            <a class="dropdown-item" id="modoBoton" onclick="alternarModo()">Modo Noche</a>
+                        </div>
+                    </li>
+                </ul>
             </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <br>
- 
+        </div>
+    </nav>
+</header>
+
   
   </div>
   <div class="container mt-5">
