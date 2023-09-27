@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
    const estrellasHTML = `<span style="color: orange">${estrellas}</span><span>${estrellasVacias}</span>`;
    return estrellasHTML
    }
-                //Probando Relacionadas                                     
+                //////////////////////////////Probando Relacionadas  Ana                                    
                                          
   fetch(`https://japceibal.github.io/emercado-api/products/${product}.json`)   
   .then(response => response.json())
@@ -140,15 +140,77 @@ document.addEventListener("DOMContentLoaded", function () {
                                                         
    });
 
+
+
+
+
+
+
+
+
+   
+
    function redirectToProduct(product) {
 
     // Almacenar la ID del producto en LocalStorage
     localStorage.setItem("selectedProductId", product);
     
-    // Construye la URL del producto utilizando el ID
-    let productUrl = `https://japceibal.github.io/emercado-api/products/${product}.json`;
+    window.scrollTo(0, 0);
+    
+    // Obtener la ID del producto almacenada en el Local Storage
+const productoID = localStorage.getItem('selectedProductId');
 
-    // Redirige a la nueva página
-    window.open(productUrl, "_blank");
-}
+// Verificar si la ID del producto está presente
+if (productoID) {
+  // Construir la URL para obtener los datos del producto
+  const productUrl = `https://japceibal.github.io/emercado-api/products/${productoID}.json`;
 
+  fetch(productUrl)   
+  .then(response => response.json())
+  .then(product => {
+    const productDetailsElement = document.getElementById('product-details')
+    
+    productDetailsElement.innerHTML = `
+      <br>
+      <br>
+      <h2>${product.name}</h2>
+      <br>
+      <p class="subtitulo">Precio:</p><p>UYU${product.cost}</p>
+      <p class="subtitulo">Descripción:</p><p>${product.description}</p>
+      <p class="subtitulo">Categoría:</p><p>${product.category}</p>
+      <p class="subtitulo">Cantidad de vendidos:</p><p>${product.soldCount}</p>
+      <p class="subtitulo">Imagenes Ilustrativas:</p> 
+      <br>
+      <br>
+      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+      <div class="carousel-item active">
+      <img src="img/prod${product.id}_1.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+      <img src="img/prod${product.id}_2.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+     <img src="img/prod${product.id}_3.jpg" class="d-block w-100" alt="...">
+     </div>
+     <div class="carousel-item">
+     <img src="img/prod${product.id}_4.jpg" class="d-block w-100" alt="...">
+     </div>
+     </div>
+     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+     <span class="visually-hidden">Previous</span>
+     </button>
+     <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+     <span class="carousel-control-next-icon" aria-hidden="true"></span>
+     <span class="visually-hidden">Next</span>
+     </button>
+     </div>`;
+        
+        })
+        .catch(error => console.error('Error al obtener información del producto:', error));
+                                                      
+      }
+    }
+
+    
