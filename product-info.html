@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/modo-noche.css" rel="stylesheet" id="modo-noche-estilos" disabled>
   <link href="css/styles.css" rel="stylesheet">
   
 </head>
@@ -70,7 +71,7 @@
           <input type="text" id="nombre" class="form-control" placeholder="Nombre de usuario">
       </div>
       <textarea id="comentario-text" class="form-control" placeholder="Dejanos tu opinión..." rows="4"></textarea>
-      <div class="rating mb-3">
+      <div class="rating mb-3" id="rate-inputs">
           <input type="radio" name="rating" value="1">
           <span class="star"></span>
           <input type="radio" name="rating" value="2">
@@ -82,7 +83,9 @@
           <input type="radio" name="rating" value="5">
           <span class="star"></span>
       </div>
+      <div id="sendcommit-button" class="text-center">
       <button type="button" onclick="agregarComentario()" class="btn btn-primary mt-2">Enviar comentario</button>
+    </div>
   </form>
   
   
@@ -106,6 +109,7 @@
       <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jóvenes a Programar</a></p>
     </div>
   </footer>
+  
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
@@ -116,51 +120,6 @@
   </div>
   
 
-
-
-
-
-
-
-
-
-
-
-
-  <script>
-    function agregarComentario() {
-        const nombreUsuario = document.getElementById("nombre").value;
-        const comentarioTexto = document.getElementById("comentario-text").value;
-        const puntuacion = document.querySelector('input[name="rating"]:checked').value;
-        const fecha = new Date()
-        const fechaFormateada = fecha.toISOString().slice(0, 19).replace("T", " ");
-
-        if (nombreUsuario && comentarioTexto && puntuacion) {
-            const estrellas = '★'.repeat(parseInt(puntuacion));
-            const estrellasVacias = '☆'.repeat(5 - parseInt(puntuacion));
-            const comentarioHTML = `
-                <div class="card mt-3">
-                    <div class="card-header"><strong>Usuario:</strong> ${nombreUsuario}</div>
-                    <div class="card-body"><strong>Comentario:</strong> ${comentarioTexto}</div>
-                    <div class="card-body"><strong>Puntuación:</strong> 
-                        <span class="star-orange">${estrellas}</span>
-                        <span>${estrellasVacias}</span>
-                    </div>
-                    <div class="card-body"><strong>Fecha y Hora: </strong>${fechaFormateada}</div>
-                </div>
-            `;
-
-            document.getElementById("comentario").insertAdjacentHTML("beforeend", comentarioHTML);
-
-            // Limpia el formulario después de agregar el comentario
-            document.getElementById("nombre").value = "";
-            document.getElementById("comentario-text").value = "";
-            document.querySelector('input[name="rating"]:checked').checked = false;
-        } else {
-            alert("Por favor, completa todos los campos.");
-        }
-    }
-</script>
 
 <style>
   /* Estilos de las estrellas */
@@ -190,12 +149,13 @@
 
   .producto1,
   .producto2 {
-      background-color: #fec87b;
+      background-color: orange;
       width: 40%; /* Cambia el tamaño según tus necesidades */
       height: 40%; /* Cambia el tamaño según tus necesidades */
       align-content: center;
       border-radius: 5px;
-      margin-left: 5%;
+      margin-left: 7%;
+      margin-bottom: 2%;
   }
 
   /* Estilos para los títulos */
@@ -208,24 +168,43 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/product-info.js"></script>
   <script src="login.js"></script>
   <script src="js/index.js"></script>
   <script src="js/products.js"></script>
+  <script>
+    function agregarComentario() {
+        const nombreUsuario = document.getElementById("nombre").value;
+        const comentarioTexto = document.getElementById("comentario-text").value;
+        const puntuacion = document.querySelector('input[name="rating"]:checked').value;
+        const fecha = new Date()
+        const fechaFormateada = fecha.toISOString().slice(0, 19).replace("T", " ");
+        if (nombreUsuario && comentarioTexto && puntuacion) {
+            const estrellas = '★'.repeat(parseInt(puntuacion));
+            const estrellasVacias = '☆'.repeat(5 - parseInt(puntuacion));
+            const comentarioHTML = `
+                <div class="card mt-3">
+                    <div class="card-header"><strong>Usuario:</strong> ${nombreUsuario}</div>
+                    <div class="card-body"><strong>Comentario:</strong> ${comentarioTexto}</div>
+                    <div class="card-body"><strong>Puntuación:</strong> 
+                        <span class="star-orange">${estrellas}</span>
+                        <span>${estrellasVacias}</span>
+                    </div>
+                    <div class="card-body"><strong>Fecha y Hora: </strong>${fechaFormateada}</div>
+                </div>
+            `;
+            document.getElementById("comentario").insertAdjacentHTML("beforeend", comentarioHTML);
+            // Limpia el formulario después de agregar el comentario
+            document.getElementById("nombre").value = "";
+            document.getElementById("comentario-text").value = "";
+            document.querySelector('input[name="rating"]:checked').checked = false;
+        } else {
+            alert("Por favor, completa todos los campos.");
+        }
+    }
+  </script>
 </body>
 
 </html>

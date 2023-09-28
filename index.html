@@ -122,33 +122,48 @@
 
     <script>
         // Función para alternar el modo y guardar la preferencia en el localStorage
-        function alternarModo() {
-            const modoBoton = document.getElementById("modoBoton");
-            const modoActual = modoBoton.textContent;
+       // Función para alternar el modo
+function alternarModo() {
+    const modoBoton = document.getElementById("modoBoton");
+    const modoActual = modoBoton.textContent;
 
-            // Cambiar el texto del botón y guardar la preferencia en el localStorage
-            if (modoActual === "Modo Noche") {
-                // Cambiar al modo nocturno
-                modoBoton.textContent = "Modo Día";
+    // Cambiar el texto del botón y guardar la preferencia en el localStorage
+    if (modoActual === "Modo Noche") {
+        // Cambiar al modo nocturno
+        modoBoton.textContent = "Modo Día";
 
-                // Habilitar los estilos del modo nocturno
-                document.getElementById("modo-noche-estilos").removeAttribute("disabled");
+        // Habilitar los estilos del modo nocturno
+        document.getElementById("modo-noche-estilos").removeAttribute("disabled");
 
-                // Guardar la preferencia en el localStorage
-                localStorage.setItem("modoPreferencia", "noche");
-            } else {
-                // Cambiar al modo día
-                modoBoton.textContent = "Modo Noche";
+        // Guardar la preferencia en el localStorage
+        localStorage.setItem("modoPreferencia", "noche");
+    } else {
+        // Cambiar al modo día
+        modoBoton.textContent = "Modo Noche";
 
-                // Deshabilitar los estilos del modo nocturno
-                document.getElementById("modo-noche-estilos").setAttribute("disabled", true);
+        // Deshabilitar los estilos del modo nocturno
+        document.getElementById("modo-noche-estilos").setAttribute("disabled", true);
 
-                // Guardar la preferencia en el localStorage
-                localStorage.setItem("modoPreferencia", "dia");
-            }
-        }
+        // Guardar la preferencia en el localStorage
+        localStorage.setItem("modoPreferencia", "dia");
+    }
+}
 
-        function logout() {
+// Función para cargar la preferencia almacenada al cargar la página
+function cargarPreferenciaModo() {
+    const modoPreferencia = localStorage.getItem("modoPreferencia");
+    if (modoPreferencia === "noche") {
+        // Aplicar el modo nocturno
+        document.getElementById("modoBoton").textContent = "Modo Día";
+        document.getElementById("modo-noche-estilos").removeAttribute("disabled");
+    }
+    // Si no hay preferencia almacenada o es "dia", se aplicará el modo día por defecto.
+}
+
+      // Llamar a la función para cargar la preferencia al cargar la página
+       cargarPreferenciaModo();
+
+    function logout() {
             //Eliminar los datos del usuario del localStorage.
             localStorage.removeItem("usuario");
             localStorage.removeItem("contrasena");
@@ -164,3 +179,4 @@
     <script src="login.js"></script>
 </body>
 </html>
+

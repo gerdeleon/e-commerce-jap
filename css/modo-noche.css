@@ -12,7 +12,7 @@ body {
 /* Encabezado en modo noche */
 .navbar {
   background-color: #34495e; /* Color de fondo del encabezado */
-  border-bottom: 3px solid orange; /* Color de borde inferior */
+  border-bottom: 3px solid rgb(1, 0, 0); /* Color de borde inferior */
 }
 
 .navbar-brand, .nav-link {
@@ -77,3 +77,4 @@ body {
 .text-muted a:hover {
   text-decoration: underline;
 }
+
