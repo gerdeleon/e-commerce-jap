@@ -113,7 +113,10 @@ document.addEventListener("DOMContentLoaded", function () {
    const estrellasHTML = `<span style="color: orange">${estrellas}</span><span>${estrellasVacias}</span>`;
    return estrellasHTML
    }
-                //////////////////////////////Probando Relacionadas  Ana                                    
+                
+   
+   
+   //Relacionados   Se muestran                                 
                                          
   fetch(`https://japceibal.github.io/emercado-api/products/${product}.json`)   
   .then(response => response.json())
@@ -139,7 +142,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                                         
    });
 
-   
+   // Redirige al inicio de la pagina con la información del producto seleccioado.
 
    function redirectToProduct(product) {
   localStorage.removeItem("setProduct");
@@ -199,88 +202,5 @@ document.addEventListener("DOMContentLoaded", function () {
   
   
   
-  // ...
   
-  function cargarProductoSeleccionado(productId) {
-    const productUrl = `https://japceibal.github.io/emercado-api/products/${productId}.json`;
-  
-    // Cargar detalles del nuevo producto
-    fetch(productUrl)
-      .then(response => response.json())
-      .then(product => {
-        const productDetailsElement = document.getElementById('product-details');
-        productDetailsElement.innerHTML = `
-          <br>
-          <br>
-          <h2>${product.name}</h2>
-          <br>
-          <p class="subtitulo">Precio:</p><p>UYU${product.cost}</p>
-          <p class="subtitulo">Descripción:</p><p>${product.description}</p>
-          <p class="subtitulo">Categoría:</p><p>${product.category}</p>
-          <p class="subtitulo">Cantidad de vendidos:</p><p>${product.soldCount}</p>
-          <p class="subtitulo">Imágenes Ilustrativas:</p>
-          <br>
-          <br>
-          <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="img/prod${product.id}_1.jpg" class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="img/prod${product.id}_2.jpg" class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="img/prod${product.id}_3.jpg" class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="img/prod${product.id}_4.jpg" class="d-block w-100" alt="...">
-              </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>`;
-          
-        // Cargar comentarios del nuevo producto
-        cargarComentarios(productId);
-      })
-      .catch(error => {
-        console.error("Error al cargar el JSON de detalles del producto:", error);
-      });
-  
-    // Cargar productos relacionados del nuevo producto
-    cargarProductosRelacionados(productId);
-  }
-  
-  // ...
-  
-  function cargarProductosRelacionados(productId) {
-    const productUrl = `https://japceibal.github.io/emercado-api/products/${productId}.json`;
-  
-    // Cargar productos relacionados del nuevo producto
-    fetch(productUrl)
-      .then(response => response.json())
-      .then(product => {
-        const productRelacionadosElement = document.getElementById('relProds');
-  
-        productRelacionadosElement.innerHTML = `
-          <div class="producto1">
-            <h2>${product.relatedProducts[0].name}</h2>
-            <img src="img/prod${product.relatedProducts[0].id}_1.jpg" alt="product image" class="img-thumbnail" onclick="redirectToProduct(${product.relatedProducts[0].id})">
-          </div>
-          <div class="producto2">
-            <h2>${product.relatedProducts[1].name}</h2>
-            <img src="img/prod${product.relatedProducts[1].id}_1.jpg" alt="product image" class="img-thumbnail" onclick="redirectToProduct(${product.relatedProducts[1].id})">
-          </div>
-        `;
-      })
-      .catch(error => {
-        console.error('Error al obtener información del producto relacionado:', error);
-      });
-  }
-  
+ 
