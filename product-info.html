@@ -67,11 +67,10 @@
     </div>
     
     <form class="form">
-      <div class="mb-3">
-          <input type="text" id="nombre" class="form-control" placeholder="Nombre de usuario">
-      </div>
+      
       <textarea id="comentario-text" class="form-control" placeholder="Dejanos tu opinión..." rows="4"></textarea>
       <div class="rating mb-3" id="rate-inputs">
+          <h5> Calificacion del Producto: </h5>
           <input type="radio" name="rating" value="1">
           <span class="star"></span>
           <input type="radio" name="rating" value="2">
@@ -84,7 +83,7 @@
           <span class="star"></span>
       </div>
       <div id="sendcommit-button" class="text-center">
-      <button type="button" onclick="agregarComentario()" class="btn btn-primary mt-2">Enviar comentario</button>
+      <button type="button" onclick="addComentario()" class="btn btn-primary mt-2">Enviar comentario</button>
     </div>
   </form>
   
@@ -175,36 +174,37 @@
   <script src="js/index.js"></script>
   <script src="js/products.js"></script>
   <script>
-    function agregarComentario() {
-        const nombreUsuario = document.getElementById("nombre").value;
-        const comentarioTexto = document.getElementById("comentario-text").value;
-        const puntuacion = document.querySelector('input[name="rating"]:checked').value;
-        const fecha = new Date()
-        const fechaFormateada = fecha.toISOString().slice(0, 19).replace("T", " ");
-        if (nombreUsuario && comentarioTexto && puntuacion) {
-            const estrellas = '★'.repeat(parseInt(puntuacion));
-            const estrellasVacias = '☆'.repeat(5 - parseInt(puntuacion));
-            const comentarioHTML = `
-                <div class="card mt-3">
-                    <div class="card-header"><strong>Usuario:</strong> ${nombreUsuario}</div>
-                    <div class="card-body"><strong>Comentario:</strong> ${comentarioTexto}</div>
-                    <div class="card-body"><strong>Puntuación:</strong> 
-                        <span class="star-orange">${estrellas}</span>
-                        <span>${estrellasVacias}</span>
-                    </div>
-                    <div class="card-body"><strong>Fecha y Hora: </strong>${fechaFormateada}</div>
+  function addComentario() {
+    // Obtén el nombre del usuario del localStorage
+    const nombreUsuario = localStorage.getItem("usuario");
+    const comentarioTexto = document.getElementById("comentario-text").value;
+    const puntuacion = document.querySelector('input[name="rating"]:checked').value;
+    const fecha = new Date()
+    const fechaFormateada = fecha.toISOString().slice(0, 19).replace("T", " ");
+    if (nombreUsuario && comentarioTexto && puntuacion) {
+        const estrellas = '★'.repeat(parseInt(puntuacion));
+        const estrellasVacias = '☆'.repeat(5 - parseInt(puntuacion));
+        const comentarioHTML = `
+            <div class="card mt-3">
+                <div class="card-header"><strong>Usuario:</strong> ${nombreUsuario}</div>
+                <div class="card-body"><strong>Comentario:</strong> ${comentarioTexto}</div>
+                <div class="card-body"><strong>Puntuación:</strong> 
+                    <span class="star-orange">${estrellas}</span>
+                    <span>${estrellasVacias}</span>
                 </div>
-            `;
-            document.getElementById("comentario").insertAdjacentHTML("beforeend", comentarioHTML);
-            // Limpia el formulario después de agregar el comentario
-            document.getElementById("nombre").value = "";
-            document.getElementById("comentario-text").value = "";
-            document.querySelector('input[name="rating"]:checked').checked = false;
-        } else {
-            alert("Por favor, completa todos los campos.");
-        }
+                <div class="card-body"><strong>Fecha y Hora: </strong>${fechaFormateada}</div>
+            </div>
+        `;
+        document.getElementById("comentario").insertAdjacentHTML("beforeend", comentarioHTML);
+        // Limpia el formulario después de agregar el comentario
+        document.getElementById("comentario-text").value = "";
+        document.querySelector('input[name="rating"]:checked').checked = false;
+    } else {
+        alert("Por favor, completa todos los campos.");
     }
-  </script>
-</body>
+}
 
+  </script>
+
+</body>
 </html>

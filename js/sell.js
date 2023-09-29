@@ -9,6 +9,18 @@ let PESO_SYMBOL = "UYU ";
 let PERCENTAGE_SYMBOL = '%';
 let MSG = "FUNCIONALIDAD NO IMPLEMENTADA";
 
+window.onload = function () {
+    if (!verificarSesion()) {
+        window.location.href = "login.html";
+    }
+};
+const storedUsername = localStorage.getItem('usuario');
+const usernameDisplay = document.getElementById('usuario-prueba');
+
+  if (storedUsername) {
+      usernameDisplay.textContent = `${storedUsername}`;
+  }   
+
 //Función que se utiliza para actualizar los costos de publicación
 function updateTotalCosts(){
     let unitProductCostHTML = document.getElementById("productCostText");
