@@ -160,7 +160,8 @@ document.addEventListener("DOMContentLoaded", function () {
         productDetailsElement.innerHTML = `
           <br>
           <br>
-          <h2>${product.name}</h2>
+          
+          <h2>${product.name}</h2>  
           <br>
           <p class="subtitulo">Precio:</p><p>UYU${product.cost}</p>
           <p class="subtitulo">Descripción:</p><p>${product.description}</p>
@@ -193,6 +194,7 @@ document.addEventListener("DOMContentLoaded", function () {
               <span class="visually-hidden">Next</span>
             </button>
           </div>
+         
         `;
        
 
