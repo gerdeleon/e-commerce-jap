@@ -1,0 +1,63 @@
+#infoCarrito {
+    padding: 2%;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 0 auto;
+    width: 40%; 
+}
+#infoCarrito label {
+    margin: 1px;
+    margin-bottom: 15px;
+}
+
+img {
+    display: block; 
+    margin: 0 auto;
+    border-radius: 2%;
+}
+
+#subtotal {
+    margin-top: 1em;
+    border-bottom: solid 2px #2c3e50;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 24px;
+    color: #333;
+    margin-top: 20px;
+    text-align: center;
+}
+
+hr {
+    border: 1px solid #ccc;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+#infoEnvio {
+    padding: 2%; 
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    
+    margin: 0 auto;
+    text-align: center;
+}
+
+#infoEnvio label {
+    margin: 5px;
+}
+
+#direccionForm {
+    margin: 10px;
+}
+footer{
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    #infoCarrito, #infoEnvio {
+        width: 90%; 
+    }
+}

@@ -1,12 +1,12 @@
- // + Info del Producto
 
 const product = localStorage.getItem('setProduct');
-
+let producto_del_fetch = "";
 document.addEventListener("DOMContentLoaded", function () {
-                                                    
+  
   fetch(`https://japceibal.github.io/emercado-api/products/${product}.json`)   
   .then(response => response.json())
   .then(product => {
+    producto_del_fetch = product;
     const productDetailsElement = document.getElementById('product-details')
     
     productDetailsElement.innerHTML = `
@@ -44,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
      <span class="carousel-control-next-icon" aria-hidden="true"></span>
      <span class="visually-hidden">Next</span>
      </button>
+     <button onClick="handleAddCarrtio()"> Comprar </button>
      </div>`;
         
         })
@@ -114,8 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
    return estrellasHTML
    }
                 
-   
-   
+
    //Relacionados   Se muestran                                 
                                          
   fetch(`https://japceibal.github.io/emercado-api/products/${product}.json`)   
@@ -194,9 +194,7 @@ document.addEventListener("DOMContentLoaded", function () {
               <span class="visually-hidden">Next</span>
             </button>
           </div>
-         
         `;
-       
 
       });
     }
@@ -206,3 +204,21 @@ document.addEventListener("DOMContentLoaded", function () {
   
   
  
+const handleAddCarrtio = () => {
+  console.log(producto_del_fetch);
+
+  //checkeamos si existe el local, sino lo creamos
+  let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+  let itemDelLocal = carrito.find(item => item.id == producto_del_fetch.id);
+  if (itemDelLocal) {
+    itemDelLocal.soldCount++;
+  } else {
+    producto_del_fetch.soldCount = 1;
+    //agrego al carrito
+    carrito.push(producto_del_fetch);
+  }
+
+  //guardo en el local de nuevo
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+
+}

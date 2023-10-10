@@ -1,59 +1,51 @@
 body {
-    
     margin: 0;
+    font-family: Arial, sans-serif; /* Agrega una fuente de lectura fácil para dispositivos móviles */
 }
+
 .form {
     background-color: white;
-    width: 400px;
-    height: 480px;
+    width: 80%; /* Reducimos el ancho del formulario en pantallas pequeñas */
+    max-width: 400px; /* Establecemos un ancho máximo */
+    height: auto; /* Cambiamos la altura a automática para adaptarse al contenido */
     border-radius: 30px;
     margin: auto;
     margin-top: 5%;
-    box-shadow: 20px 20px 300px #000000;
-    text-align:center;
-    align-items: center;
-    
+    box-shadow: 7px 7px 80px #000000; /* Reducimos la intensidad de la sombra */
+    text-align: center;
 }
-
 
 .fin {
     margin-top: 5%;
-    margin-bottom: 0%;
     text-align: center;
     background-color: #f8f9fa;
 }
 
-
 .form .log {
-    width: 130px;
-    height: 130px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
-    margin-top: -65px;
-    
+    margin-top: -50px; /* Alineamos el avatar verticalmente */
 }
 
 h1 {
-    font-size: 45px;
+    font-size: 36px;
     margin-top: -3%;
     color: #545454;
-    margin-bottom: 0%;
 }
 
 h2 {
-    margin-top: -5%;
-    margin-bottom: 0%;
-    font-size: 40px;
+    font-size: 26px;
     color: #545454;
-    padding: 10px
+    padding: 10px;
 }
 
 h3 {
-    margin: 0%;
-    color:#545454;
-   font-size: 14px;
-   color:   rgb(0, 0, 0);
-   text-align: center;
- padding-bottom: 0px;
+    margin: 0;
+    color: #545454;
+    font-size: 14px;
+    text-align: center;
+    padding-bottom: 10px; /* Agregamos espacio inferior para separar elementos */
 }
 
 .form input[type="email"],
@@ -63,159 +55,36 @@ h3 {
     outline: none;
     height: 35px;
     font-size: 16px;
-    width: 300px;
+    width: 80%; /* Cambiamos el ancho para que sea más ancho en pantallas pequeñas */
+    max-width: 300px; /* Establecemos un ancho máximo */
     color: #545454;
-    margin-top:27px;
-    
+    margin-top: 20px; /* Reducimos el espacio superior */
 }
 
 .btn {
     border: none;
-    height: 50px;
-    width: 200px;
-    background: orange;
-    color: rgb(255, 255, 255);
-    font-size: 25px;
-    border-radius: 10px;
-    transition: background-color 0.5s;
-    padding: 10px, 10px;
-   text-decoration: none;
-   margin-top: 2%;
-}
- .btn:hover {
-    background-color: #545454;
- }
- 
- .registro {
-    color: aliceblue;
-    padding: 15px;
-    margin-top: 5px;
-    text-align:center;
-    align-items: center;
- }
- .registro .Btn {
-    border: none;
-    height: 50px;
-    width: 200px;
-    background: #545454;
-    color: white;
-    font-size: 15px;
-    border-radius: 10px;
-    transition: background-color 0.5s;
-    align-items: center;
- }
-
- .Btn:hover {
-    background-color: orange;
- }
- 
-
-  .reg {
-    background-color: rgb(245, 245, 245);
-    color:#545454;
-    border-radius: 10px;
-    font-size: 20px;
-    width: 8cm;
-    
-}
-
-
-
-footer p {
-    margin: 2px;
-    color: #545454;
-    font-size: 15px;    
-}
-.fin {
-    background-color:#f8f9fa;
-    max-height: 20px;
-    overflow: hidden;
-    margin-top: 5cm;
-}
-
-.left{
-    float: left;
-}
-.right{
-float:right;
-
-}
-
-            /* Responsive*/
- @media (max-width: 768px) {
-  body{  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
- }
-.form {
-    height: 380px;
-    margin: auto;
-    margin-top: 20%;
-    box-shadow: 7px 7px 80px #000000;
- 
-    width: 80%; /* Reducimos el ancho del formulario en pantallas pequeñas */
-   /* height: auto;*/
-}
-
-.form .log {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    
-}
-
-h1 {
-    font-size: 36px;
-    margin-top: -3%;
-    color: #545454;
-    
-}
-
-h2 {
-   
-    
-    font-size: 26px;
-    color: #545454;
-    padding: 10px
-}
-
-h3 {
-    margin: 0%;
-    color:#545454;
-   font-size: 14px;
-   color:   rgb(0, 0, 0);
-   text-align: center;
-
-    
-}
-
-.form input[type="email"],
-.form input[type="password"] {
-    height: 35px;
-    font-size: 14px;
-    width: 0%;
-}
-
-.btn {
     height: 40px;
     width: 180px;
     background: orange;
     color: rgb(255, 255, 255);
     font-size: 23px;
+    border-radius: 10px;
+    transition: background-color 0.5s;
+    margin-top: 20px; /* Reducimos el espacio superior */
 }
- .btn:hover {
+
+.btn:hover {
     background-color: darkorange;
- }
- 
- .registro {
+}
+
+.registro {
     color: aliceblue;
     padding: 15px;
-    margin-top: 0px;
-    text-align:center;
-    align-items: center;
- }
- 
- .registro .Btn {
+    margin-top: 20px; /* Reducimos el espacio superior */
+    text-align: center;
+}
+
+.registro .Btn {
     border: none;
     height: 50px;
     width: 160px;
@@ -224,27 +93,59 @@ h3 {
     font-size: 14px;
     border-radius: 10px;
     transition: background-color 0.5s;
-    align-items: center;
-    border-bottom: 2.5px solid #707070 ;
-    border-right: 2.5px solid #707070 
+    border-bottom: 2.5px solid #707070;
+    border-right: 2.5px solid #707070;
+}
 
- }
-
- .Btn:hover {
+.Btn:hover {
     background-color: #545454;
- }
- 
+}
 
-  .reg {
-    background-color:transparent;
-    color:aliceblue;
+.reg {
+    background-color: transparent;
+    color: aliceblue;
     font-size: 18px;
     width: 6cm;
-    
 }
+
 .fin {
     text-align: center;
     background-color: #f8f9fa;
 }
-}
 
+/* Estilos adicionales para dispositivos móviles */
+@media (max-width: 768px) {
+    .form {
+        height: auto; /* Cambiamos la altura a automática para adaptarse al contenido */
+        margin-top: 10%; /* Ajustamos el espacio superior */
+    }
+
+    h1 {
+        font-size: 24px; /* Reducimos el tamaño de la fuente */
+    }
+
+    h2 {
+        font-size: 20px; /* Reducimos el tamaño de la fuente */
+    }
+
+    h3 {
+        font-size: 12px; /* Reducimos el tamaño de la fuente */
+    }
+
+    .form input[type="email"],
+    .form input[type="password"] {
+        font-size: 14px; /* Reducimos el tamaño de la fuente */
+    }
+
+    .btn {
+        height: 35px; /* Reducimos la altura del botón */
+        width: 160px; /* Reducimos el ancho del botón */
+        font-size: 18px; /* Reducimos el tamaño de la fuente del botón */
+    }
+
+    .registro .Btn {
+        height: 40px; /* Reducimos la altura del botón */
+        width: 140px; /* Reducimos el ancho del botón */
+        font-size: 12px; /* Reducimos el tamaño de la fuente del botón */
+    }
+}

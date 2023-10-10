@@ -53,10 +53,12 @@
 </header>
 
   <main>
+    
     <div class="container">
-      
       <div id="product-details" class="my-4"></div>
-      <button id="botonComprar">Comprar</button>
+      <div class="col-md-10">
+      <button id="comprarButton" class="btn btn-primary float-end">Comprar</button>
+      </div>
     </div>
 
     <br>
@@ -147,6 +149,11 @@
       align-content: center;
   }
 
+  /* Estilo para el boton de comprar */
+  #botonComprar {
+    font-size: 20px;
+  }
+
   .producto1,
   .producto2 {
       background-color: orange;
@@ -171,10 +178,11 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/product-info.js"></script>
-  <script src="login.js"></script>
   <script src="js/index.js"></script>
   <script src="js/products.js"></script>
+  
   <script>
+    
   function addComentario() {
     // Obtén el nombre del usuario del localStorage
     const nombreUsuario = localStorage.getItem("usuario");
@@ -205,6 +213,7 @@
     }
 }
 
+    
   </script>
 
 </body>
