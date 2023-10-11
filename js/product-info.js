@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
      <span class="carousel-control-next-icon" aria-hidden="true"></span>
      <span class="visually-hidden">Next</span>
      </button>
-     <button onClick="handleAddCarrtio()"> Comprar </button>
+     <button onClick="handleAddCarrito()" class="btn btn-primary float-end" id="btnComprar"> Añadir al carrito </button>
      </div>`;
         
         })
@@ -200,25 +200,32 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
   
-  
-  
-  
- 
-const handleAddCarrtio = () => {
-  console.log(producto_del_fetch);
 
-  //checkeamos si existe el local, sino lo creamos
-  let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-  let itemDelLocal = carrito.find(item => item.id == producto_del_fetch.id);
-  if (itemDelLocal) {
-    itemDelLocal.soldCount++;
-  } else {
-    producto_del_fetch.soldCount = 1;
-    //agrego al carrito
-    carrito.push(producto_del_fetch);
+  const handleAddCarrito = () => {
+    console.log(producto_del_fetch);
+  
+    //checkeamos si existe el local, sino lo creamos
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    let itemDelLocal = carrito.find(item => item.id == producto_del_fetch.id);
+    if (itemDelLocal) {
+      itemDelLocal.soldCount++;
+    } else {
+      producto_del_fetch.soldCount = 1;
+      //agrego al carrito
+      carrito.push(producto_del_fetch);
+    }
+  console.log(producto_del_fetch)
+    const prodToAdd = {
+      id: producto_del_fetch.id,
+      name: producto_del_fetch.name,
+      count: producto_del_fetch.soldCount,
+      unitCost: producto_del_fetch.cost,
+      currency: producto_del_fetch.currency,
+      image: producto_del_fetch.images[0]
+    }
+    console.log(prodToAdd)
+    //guardo en el local de nuevo
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    
+  
   }
-
-  //guardo en el local de nuevo
-  localStorage.setItem("carrito", JSON.stringify(carrito));
-
-}

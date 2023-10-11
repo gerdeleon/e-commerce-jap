@@ -11,8 +11,16 @@ document.addEventListener("DOMContentLoaded", function () {
     fetch('https://japceibal.github.io/emercado-api/user_cart/25801.json')
         .then(response => response.json())
         .then(data => {
+console.log(data.articles[0])
+
+// const endpointData = data.articles[0]
+// const lsData = localStorage.getItem('carrito');
+// const cartProducts = (lsData) ? [...endpointData, ...lsData] : [...endpointData]
+// console.log(cartProducts)
+          
             console.log(data.articles[0]);
             let producto = {
+                id: data.articles[0].id,
                 name: data.articles[0].name,
                 cost: data.articles[0].unitCost,
                 soldCount: data.articles[0].count,
@@ -22,57 +30,65 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             //checkeamos si existe el local, sino lo creamos
-            let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+            let carrito = JSON.parse(localStorage.getItem("carrito")) ?? [];
             //agrego al carrito
             carrito.push(producto);
-
+            console.log(carrito)
             var infoCarrito = document.getElementById("infoCarrito");
             let total_del_precio = 0;
-            for (const item of carrito) {
+            for (let item of carrito) {
+                console.log(item)
                 // Calcula el subtotal para cada producto
                 const subtotal = item.cost * item.soldCount;
                 total_del_precio += subtotal;
-
                 // Agrega un elemento para mostrar la cantidad y el subtotal
                 infoCarrito.innerHTML += `
                     <div class="producto-en-carrito">
+                        <hr>
                         <p>Nombre: ${item.name}</p>
                         <p>Precio: ${item.cost}</p>
                         <label for="cantidad-${item.name}">Cantidad:</label>
-                        <input type="number" id="cantidad-${item.name}" value="${item.soldCount}" data-producto="${item.name}">
-                        <p>Subtotal: <span id="subtotal-${item.name}">${subtotal}</span></p>
+                        <input type="number" id="cantidad-${item.id}" value="${item.soldCount}">
+                        <p>Subtotal: <span id="subtotal-${item.id}">${subtotal} </span></p>
                         <img src="${item.images[0]}" alt="Imagen del producto" width="300">
                     </div>
                 `;
 
+
+        // Controlador de eventos para actualizar el subtotal según lo que se ingrese en el input prodCount
+        // EJEMPLO CON CHANGE
+        // prodCount.addEventListener('change', (event) => {
+        //     const newCount = event.target.value;
+        //     const newSubtotal = unitCost * newCount;
+        //     document.getElementById(`subtotal`).innerText = `${currency} ${newSubtotal}`;
+        // });
+
                 // Agrega un evento input a cada campo de cantidad
-                const cantidadInput = document.getElementById(`cantidad-${item.name}`);
-                cantidadInput.addEventListener("input", function () {
-                    const nuevaCantidad = parseInt(cantidadInput.value);
-
-                    // Actualiza la cantidad en el carrito
-                    item.soldCount = nuevaCantidad;
-
-                    // Calcula el nuevo subtotal
+                const cantidadInput = document.getElementById(`cantidad-${item.id}`);
+                console.log(cantidadInput)
+                cantidadInput.addEventListener("input", function (event) {
+                    console.log("evento input");
+                    const input = event.target;
+                    const nuevaCantidad = parseInt(input.value);
+                        // Calcula el nuevo subtotal
                     const nuevoSubtotal = item.cost * nuevaCantidad;
-
-                    // Actualiza el valor del subtotal en el HTML
-                    const subtotalElement = document.getElementById(`subtotal-${item.name}`);
+                        // Actualiza el valor del subtotal en el HTML
+                    const subtotalElement = document.getElementById(`subtotal-${item.id}`);
                     subtotalElement.textContent = nuevoSubtotal;
-
-                    // Actualiza el total del carrito
-                    total_del_precio = carrito.reduce((total, producto) => total + producto.cost * producto.soldCount, 0);
-                    subTotal.textContent = total_del_precio;
+                        // Actualiza el total del carrito
+                    /* total_del_precio = carrito.reduce((total, producto) => total + producto.cost * producto.soldCount, 0); */
+                    // subTotal.textContent = total_del_precio; 
                 });
             }
 
-            var subTotal = document.getElementById("subtotal");
-            subTotal.textContent = total_del_precio;
-        })
-        .catch(error => {
-            console.error('Error al obtener los datos:', error);
-        });
+/*   var subTotal = document.getElementById("subtotal");
+  subTotal.textContent = total_del_precio; */
+})
+  .catch(error => {
+  console.error('Error al obtener los datos:', error);
+});
 
+              
     var infoEnvio = document.getElementById("infoEnvio");
     infoEnvio.innerHTML = `
         <h2> Tipo de Envío </h2>
@@ -96,5 +112,8 @@ document.addEventListener("DOMContentLoaded", function () {
             <label for="esquina">Esquina:</label>
             <input type="text" id="esquina" name="esquina"><br>
         </form>
+        <button class="btn btn-primary float-end" id="btnComprar"> Comprar </button>
     `;
 })
+
+
