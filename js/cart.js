@@ -6,91 +6,82 @@ if (storedUsername) {
     usernameDisplay.textContent = `${storedUsername}`;
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-    // Realiza una solicitud web a la URL utilizando fetch
-    fetch('https://japceibal.github.io/emercado-api/user_cart/25801.json')
-        .then(response => response.json())
-        .then(data => {
-console.log(data.articles[0])
+document.addEventListener("DOMContentLoaded", main);
 
-// const endpointData = data.articles[0]
-// const lsData = localStorage.getItem('carrito');
-// const cartProducts = (lsData) ? [...endpointData, ...lsData] : [...endpointData]
-// console.log(cartProducts)
-          
-            console.log(data.articles[0]);
-            let producto = {
-                id: data.articles[0].id,
-                name: data.articles[0].name,
-                cost: data.articles[0].unitCost,
-                soldCount: data.articles[0].count,
-                currency: data.articles[0].currency,
-                category: "",
-                images: [data.articles[0].image],
-            }
+async function main() {
+    const cartProducts = await obtenerDatosCarrito();
+    actualizarUI(cartProducts);
+}
 
-            //checkeamos si existe el local, sino lo creamos
-            let carrito = JSON.parse(localStorage.getItem("carrito")) ?? [];
-            //agrego al carrito
-            carrito.push(producto);
-            console.log(carrito)
-            var infoCarrito = document.getElementById("infoCarrito");
-            let total_del_precio = 0;
-            for (let item of carrito) {
-                console.log(item)
-                // Calcula el subtotal para cada producto
-                const subtotal = item.cost * item.soldCount;
-                total_del_precio += subtotal;
-                // Agrega un elemento para mostrar la cantidad y el subtotal
-                infoCarrito.innerHTML += `
-                    <div class="producto-en-carrito">
-                        <hr>
-                        <p>Nombre: ${item.name}</p>
-                        <p>Precio: ${item.cost}</p>
-                        <label for="cantidad-${item.name}">Cantidad:</label>
-                        <input type="number" id="cantidad-${item.id}" value="${item.soldCount}">
-                        <p>Subtotal: <span id="subtotal-${item.id}">${subtotal} </span></p>
-                        <img src="${item.images[0]}" alt="Imagen del producto" width="300">
-                    </div>
-                `;
+async function obtenerDatosCarrito() {
+    try {
+        const URL = 'https://japceibal.github.io/emercado-api/user_cart/25801.json'
+        const response = await fetch(URL);
+        const data = await response.json();
+        const endpointData = data.articles[0];
+        const { id, name, currency, image, count, unitCost } = endpointData;
+        const endpointDataUpdated = {
+            id: id,
+            name: name,
+            currency: currency,
+            image: image,
+            soldCount: count,
+            cost: unitCost
+        };
+
+        const lsData = JSON.parse(localStorage.getItem('carrito'));
+
+        const cartProducts = (lsData) ? [...[endpointDataUpdated], ...lsData] : [endpointDataUpdated];
+
+        return cartProducts;
+
+    } catch (error) {
+        console.error('Error al obtener los datos:', error);
+    }
+}
+
+function crearProductoHTML(item) {
+    const { name, currency, cost, id, soldCount, image } = item
+    return `
+        <div class="producto-en-carrito">
+            <hr>
+            <p>Nombre: ${name}</p>
+            <p>Precio: ${currency} ${cost}</p>
+            <label for="cantidad-${name}">Cantidad:</label>
+            <input type="number" id="cantidad-${id}" value="${soldCount}" min='0' max='100'">
+            <p>Subtotal: <span id="subtotal-${id}">${cost * soldCount} </span></p>
+            <img src="${image}" alt="Imagen del producto" width="300">
+        </div>
+    `;
+}
+
+function actualizarUI(cartProducts) {
+    const infoCarrito = document.getElementById("infoCarrito");
+
+    infoCarrito.innerHTML = cartProducts.map(crearProductoHTML).join('');
+
+    let total_del_precio = 0;
+    for (let item of cartProducts) {
+        const { cost, id, soldCount } = item
+
+        total_del_precio += cost * soldCount;
+
+        const cantidadInput = document.getElementById(`cantidad-${id}`);
+
+        cantidadInput.addEventListener("input", function (event) {
+            const nuevaCantidad = parseInt(event.target.value);
+            const nuevoSubtotal = cost * nuevaCantidad;
+            const subtotalElement = document.getElementById(`subtotal-${id}`);
+            subtotalElement.textContent = nuevoSubtotal;
+        });
+    }
+}
 
 
-        // Controlador de eventos para actualizar el subtotal según lo que se ingrese en el input prodCount
-        // EJEMPLO CON CHANGE
-        // prodCount.addEventListener('change', (event) => {
-        //     const newCount = event.target.value;
-        //     const newSubtotal = unitCost * newCount;
-        //     document.getElementById(`subtotal`).innerText = `${currency} ${newSubtotal}`;
-        // });
+// Esto no lo toqué
 
-                // Agrega un evento input a cada campo de cantidad
-                const cantidadInput = document.getElementById(`cantidad-${item.id}`);
-                console.log(cantidadInput)
-                cantidadInput.addEventListener("input", function (event) {
-                    console.log("evento input");
-                    const input = event.target;
-                    const nuevaCantidad = parseInt(input.value);
-                        // Calcula el nuevo subtotal
-                    const nuevoSubtotal = item.cost * nuevaCantidad;
-                        // Actualiza el valor del subtotal en el HTML
-                    const subtotalElement = document.getElementById(`subtotal-${item.id}`);
-                    subtotalElement.textContent = nuevoSubtotal;
-                        // Actualiza el total del carrito
-                    /* total_del_precio = carrito.reduce((total, producto) => total + producto.cost * producto.soldCount, 0); */
-                    // subTotal.textContent = total_del_precio; 
-                });
-            }
-
-/*   var subTotal = document.getElementById("subtotal");
-  subTotal.textContent = total_del_precio; */
-})
-  .catch(error => {
-  console.error('Error al obtener los datos:', error);
-});
-
-              
-    var infoEnvio = document.getElementById("infoEnvio");
-    infoEnvio.innerHTML = `
+var infoEnvio = document.getElementById("infoEnvio");
+infoEnvio.innerHTML = `
         <h2> Tipo de Envío </h2>
         <input type="radio" name="opcion" id="opcion1" value="Opción 1">
         <label for="opcion1">Premium 2 a 5 días (15%) </label><br>
@@ -114,6 +105,6 @@ console.log(data.articles[0])
         </form>
         <button class="btn btn-primary float-end" id="btnComprar"> Comprar </button>
     `;
-})
+
 
 
