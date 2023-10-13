@@ -11,49 +11,49 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/modo-noche.css" rel="stylesheet" id="modo-noche-estilos" disabled>
   <link href="css/styles.css" rel="stylesheet">
-  
+
 </head>
 
 <body>
   <header>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #34495e;">
-        <div class="container">
-            <a class="navbar-brand" href="index.html" style="color: aliceblue;">eMercado</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="categories.html">Categorías</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="sell.html">Vender</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="usuario-prueba" role="button"
-                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="usuarioDropdown">
-                            <a class="dropdown-item" href="cart.html">Mi Carrito</a>
-                            <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="login.html" onclick="logout()">Cerrar Sesión</a>
-                            <a class="dropdown-item" id="modoBoton" onclick="alternarModo()">Modo Noche</a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+      <div class="container">
+        <a class="navbar-brand" href="index.html" style="color: aliceblue;">eMercado</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="categories.html">Categorías</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="sell.html">Vender</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="usuario-prueba" role="button" data-bs-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+              </a>
+              <div class="dropdown-menu" aria-labelledby="usuarioDropdown">
+                <a class="dropdown-item" href="cart.html">Mi Carrito</a>
+                <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="login.html" onclick="logout()">Cerrar Sesión</a>
+                <a class="dropdown-item" id="modoBoton" onclick="alternarModo()">Modo Noche</a>
+              </div>
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
-</header>
+  </header>
 
   <main>
-    
+
     <div class="container">
       <div id="product-details" class="my-4"></div>
     </div>
@@ -61,54 +61,55 @@
     <br>
     <br>
     <br>
-    
+
     <h1 class="my-4" id="com_Product">Comentarios del Producto</h1>
     <div id="comentario" class="my-4">
     </div>
-    
+
     <form class="form">
-      
+
       <textarea id="comentario-text" class="form-control" placeholder="Dejanos tu opinión..." rows="4"></textarea>
       <div class="rating mb-3" id="rate-inputs">
-          <h5> Calificacion del Producto: </h5>
-          <input type="radio" name="rating" value="1">
-          <span class="star"></span>
-          <input type="radio" name="rating" value="2">
-          <span class="star"></span>
-          <input type="radio" name="rating" value="3">
-          <span class="star"></span>
-          <input type="radio" name="rating" value="4">
-          <span class="star"></span>
-          <input type="radio" name="rating" value="5">
-          <span class="star"></span>
+        <h5> Calificacion del Producto: </h5>
+        <input type="radio" name="rating" value="1">
+        <span class="star"></span>
+        <input type="radio" name="rating" value="2">
+        <span class="star"></span>
+        <input type="radio" name="rating" value="3">
+        <span class="star"></span>
+        <input type="radio" name="rating" value="4">
+        <span class="star"></span>
+        <input type="radio" name="rating" value="5">
+        <span class="star"></span>
       </div>
       <div id="sendcommit-button" class="text-center">
-      <button type="button" onclick="addComentario()" class="btn btn-primary mt-2">Enviar comentario</button>
+        <button type="button" onclick="addComentario()" class="btn btn-primary mt-2">Enviar comentario</button>
+      </div>
+    </form>
+
+
+
+    <div id="comentario"></div>
+    <h1>Productos que te pueden interesar:</h1>
+    <div class="container">
+      <div id="relProds" class="relProds">
+      </div>
     </div>
-  </form>
-  
-  
-  
-  <div id="comentario"></div>
-  <h1>Productos que te pueden interesar:</h1>
-  <div class="container">
-    <div id="relProds" class="relProds">
-    </div>
-  </div>
-    
+
   </main>
 
-    
-  
+
+
   <footer class="text-muted">
     <div class="container">
       <p class="float-end">
         <a href="#">Volver arriba</a>
       </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jóvenes a Programar</a></p>
+      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jóvenes a Programar</a>
+      </p>
     </div>
   </footer>
-  
+
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
@@ -117,52 +118,57 @@
       <div></div>
     </div>
   </div>
-  
 
 
-<style>
-  /* Estilos de las estrellas */
-  .star,
-  .star-orange {
+
+  <style>
+    /* Estilos de las estrellas */
+    .star,
+    .star-orange {
       color: orange;
-  }
+    }
 
-  /* Estilos del carrusel */
-  #carouselExampleControls {
-      width: 70%; /* Cambia el tamaño según tus necesidades */
-      height: 70%; /* Cambia el tamaño según tus necesidades */
-      margin: 0 auto; /* Centra horizontalmente en la pantalla */
+    /* Estilos del carrusel */
+    #carouselExampleControls {
+      width: 70%;
+      /* Cambia el tamaño según tus necesidades */
+      height: 70%;
+      /* Cambia el tamaño según tus necesidades */
+      margin: 0 auto;
+      /* Centra horizontalmente en la pantalla */
       top: 0;
       bottom: 0;
       left: 0;
       right: 0;
       text-align: center;
-  }
+    }
 
-  /* Estilos de los productos relacionados */
-  #relProds {
+    /* Estilos de los productos relacionados */
+    #relProds {
       margin-top: 50px;
       display: flex;
       align-content: center;
-  }
+    }
 
-  .producto1,
-  .producto2 {
+    .producto1,
+    .producto2 {
       background-color: orange;
-      width: 40%; /* Cambia el tamaño según tus necesidades */
-      height: 40%; /* Cambia el tamaño según tus necesidades */
+      width: 40%;
+      /* Cambia el tamaño según tus necesidades */
+      height: 40%;
+      /* Cambia el tamaño según tus necesidades */
       align-content: center;
       border-radius: 5px;
       margin-left: 7%;
       margin-bottom: 2%;
-  }
+    }
 
-  /* Estilos para los títulos */
-  h1,
-  h2 {
+    /* Estilos para los títulos */
+    h1,
+    h2 {
       text-align: center;
-  }
-</style>
+    }
+  </style>
 
 
 
@@ -170,19 +176,19 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/product-info.js"></script>
-  <script src="js/index.js"></script>
-  <script src="js/products.js"></script>
-  
+  <!-- <script src="js/index.js"></script> -->
+  <!-- <script src="js/products.js"></script> -->
+
   <script>
-    
-  function addComentario() {
-    // Obtén el nombre del usuario del localStorage
-    const nombreUsuario = localStorage.getItem("usuario");
-    const comentarioTexto = document.getElementById("comentario-text").value;
-    const puntuacion = document.querySelector('input[name="rating"]:checked').value;
-    const fecha = new Date()
-    const fechaFormateada = fecha.toISOString().slice(0, 19).replace("T", " ");
-    if (nombreUsuario && comentarioTexto && puntuacion) {
+
+    function addComentario() {
+      // Obtén el nombre del usuario del localStorage
+      const nombreUsuario = localStorage.getItem("usuario");
+      const comentarioTexto = document.getElementById("comentario-text").value;
+      const puntuacion = document.querySelector('input[name="rating"]:checked').value;
+      const fecha = new Date()
+      const fechaFormateada = fecha.toISOString().slice(0, 19).replace("T", " ");
+      if (nombreUsuario && comentarioTexto && puntuacion) {
         const estrellas = '★'.repeat(parseInt(puntuacion));
         const estrellasVacias = '☆'.repeat(5 - parseInt(puntuacion));
         const comentarioHTML = `
@@ -200,13 +206,14 @@
         // Limpia el formulario después de agregar el comentario
         document.getElementById("comentario-text").value = "";
         document.querySelector('input[name="rating"]:checked').checked = false;
-    } else {
+      } else {
         alert("Por favor, completa todos los campos.");
+      }
     }
-}
 
-    
+
   </script>
 
 </body>
+
 </html>
