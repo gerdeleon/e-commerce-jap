@@ -51,60 +51,100 @@ function crearProductoHTML(item) {
             <input type="number" id="cantidad-${id}" value="${soldCount}" min='0' max='100'">
             <p>Subtotal: <span id="subtotal-${id}">${cost * soldCount} </span></p>
             <img src="${image}" alt="Imagen del producto" width="300">
+            <button class="btn btn-danger data-product-id" data-product-id="${id}">Eliminar</button>
         </div>
     `;
 }
 
 function actualizarUI(cartProducts) {
     const infoCarrito = document.getElementById("infoCarrito");
+    const tipoEnvioRadios = document.getElementsByName("opcion");
 
     infoCarrito.innerHTML = cartProducts.map(crearProductoHTML).join('');
 
+    let subtotalGeneral = 0; // Inicializa el subtotal general en 0
     let total_del_precio = 0;
+
     for (let item of cartProducts) {
-        const { cost, id, soldCount } = item
-
-        total_del_precio += cost * soldCount;
-
+        const { cost, id, soldCount } = item;
         const cantidadInput = document.getElementById(`cantidad-${id}`);
 
         cantidadInput.addEventListener("input", function (event) {
             const nuevaCantidad = parseInt(event.target.value);
             const nuevoSubtotal = cost * nuevaCantidad;
             const subtotalElement = document.getElementById(`subtotal-${id}`);
-            subtotalElement.textContent = nuevoSubtotal;
+            subtotalElement.textContent = nuevoSubtotal.toFixed(2);
+
+            // Actualiza el subtotal general
+            subtotalGeneral = cartProducts.reduce((total, product) => {
+                return total + product.cost * (parseInt(document.getElementById(`cantidad-${product.id}`).value));
+            }, 0);
+            subtotalGeneralElement.textContent = subtotalGeneral.toFixed(2);
+            actualizarCostoEnvio(subtotalGeneral);
+        });
+
+        total_del_precio += cost * soldCount;
+    }
+
+    const subtotalGeneralElement = document.getElementById("subtotal-general").querySelector("span");
+    subtotalGeneralElement.textContent = total_del_precio.toFixed(2);
+
+    const costoEnvioElement = document.getElementById("costo-envio").querySelector("span");
+    // Agregar evento de escucha a los radios de tipo de envío
+    for (let radio of tipoEnvioRadios) {
+        radio.addEventListener("change", function () {
+            actualizarCostoEnvio(subtotalGeneral);
         });
     }
+
+    function actualizarCostoEnvio(subtotalGeneral) {
+        let costoEnvio = 0;
+        for (let radio of tipoEnvioRadios) {
+            if (radio.checked) {
+                const porcentajeEnvio = parseFloat(radio.value) / 100;
+                costoEnvio = subtotalGeneral * porcentajeEnvio;
+            }
+        }
+    costoEnvioElement.textContent = costoEnvio.toFixed(2);
+
+    const totalPagar = subtotalGeneral + costoEnvio;
+    const totalPagarElement = document.getElementById("total-pagar").querySelector("span");
+    totalPagarElement.textContent = totalPagar.toFixed(2);
 }
 
+/// DESAFIATEE Agregar evento de clic al botón "Eliminar" ///
 
-// Esto no lo toqué
+     const eliminarBotones = document.querySelectorAll(".eliminar-producto");
+     eliminarBotones.forEach((boton) => {
+         boton.addEventListener("click", function (event) {
+             const productoId = event.target.getAttribute("data-producto-id");
+             eliminarProducto(productoId);
+         });
+     });
+ }
+ 
+ // Función para eliminar un producto del carrito
+ function eliminarProducto(productoId) {
+    const cartProducts = JSON.parse(localStorage.getItem('carrito')) || [];
 
-var infoEnvio = document.getElementById("infoEnvio");
-infoEnvio.innerHTML = `
-        <h2> Tipo de Envío </h2>
-        <input type="radio" name="opcion" id="opcion1" value="Opción 1">
-        <label for="opcion1">Premium 2 a 5 días (15%) </label><br>
+    // Encontrar el índice del producto a eliminar por su ID
+    const productoIndex = cartProducts.findIndex((producto) => producto.id === productoId);
 
-        <input type="radio" name="opcion" id="opcion2" value="Opción 2">
-        <label for="opcion2">Express 5 a 8 días (7%) </label><br>
+    if (productoIndex !== -1) {
+        // Eliminar el producto del array de productos del carrito
+        cartProducts.splice(productoIndex, 1);
 
-        <input type="radio" name="opcion" id="opcion3" value="Opción 3">
-        <label for="opcion3">Standard 12 a 15 días (5%) </label><br>
+        // Actualizar el localStorage con los productos restantes
+        localStorage.setItem('carrito', JSON.stringify(cartProducts));
 
-        <h2> Dirección de Envío </h2>
-        <form id="direccionForm">
-            <label for="calle">Calle:</label>
-            <input type="text" id="calle" name="calle"><br>
+        // Recalcular los totales
+        actualizarUI(cartProducts);
+    }
+}
+ 
+ // Resto de tu código para actualizar los totales, similar a lo que ya tienes
 
-            <label for="numero" id="numero">Número de Puerta:</label>
-            <input type="text" id="numero" name="numero"><br>
+    
+actualizarUI(cartProducts);
 
-            <label for="esquina">Esquina:</label>
-            <input type="text" id="esquina" name="esquina"><br>
-        </form>
-        <button class="btn btn-primary float-end" id="btnComprar"> Comprar </button>
-    `;
-
-
-
+/// FIN DESAFIATEE ///

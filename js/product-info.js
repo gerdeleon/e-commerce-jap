@@ -201,8 +201,8 @@ function redirectToProduct(product) {
 }
 
 
-const handleAddCarrito = () => {
 
+const handleAddCarrito = () => {
 
   const prodToAdd = {
     id: producto_del_fetch.id,

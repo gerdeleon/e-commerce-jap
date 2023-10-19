@@ -10,6 +10,9 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link rel="stylesheet" href="css/styles-carrito.css">
+  <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
 </head>
 
 <body>
@@ -49,36 +52,152 @@
         </div>
     </nav>
 </header>
-<h1> Carrito de Compras </h1>
+
+
+<div id="misCompras">
+  <h1> Carrito de Compras </h1>
+  
   <main>
     <div id="infoCarrito"></div>
    
-    <hr>
-    <div id="infoEnvio">
-      <div id="direccion"> </div>
-    </div>
     
+    <div id="infoEnvio">
+        <h2> Tipo de Envío </h2>
+        <input type="radio" name="opcion" id="opcion1" value="0.15"> <!-- 15% -->
+        <label for="opcion1">Premium 2 a 5 días (15%)</label><br>
+        
+        <input type="radio" name="opcion" id="opcion2" value="0.07"> <!-- 7% -->
+        <label for="opcion2">Express 5 a 8 días (7%)</label><br>
+        
+        <input type="radio" name="opcion" id="opcion3" value="0.05"> <!-- 5% -->
+        <label for="opcion3">Standard 12 a 15 días (5%)</label><br>        
+
+      <h2> Dirección de Envío </h2>
+      <form id="direccionForm">
+          <label for="calle">Calle:</label>
+          <input type="text" id="calle" name="calle"><br>
+
+          <label for="numero" id="numero">Número de Puerta:</label>
+          <input type="text" id="numero" name="numero"><br>
+
+          <label for="esquina">Esquina:</label>
+          <input type="text" id="esquina" name="esquina"><br>
+      </form>
+    </div>
+
+
+
+
+
+
+
+
+
+    <div id="subtotal-general">Subtotal General: $<span>0.00</span></div>
+    <div id="costo-envio">Costo de Envío: $<span>0.00</span></div>
+    <div id="total-pagar">Total a Pagar: $<span>0.00</span></div>
+
 
   </main>
-  <footer class="text-muted">
-    <div class="container">
-      <p class="float-end">
-        <a href="#">Volver arriba</a>
+</div>
+
+    <!--Formas de Pago-->
+    <div>
+      <h2>Forma de pago</h2>
+      <!-- Botón para abrir el modal -->
+      <p>
+        Método de Pago Seleccionado:
+        <span id="selectedPaymentMethod">Ninguno</span>
       </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
+      <button class="btn btn-primary" data-toggle="modal" data-target="#paymentModal"> Seleccionar </button>
+      
     </div>
-  </footer>
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+    <!-- Modal -->
+    <div class="modal fade" id="paymentModal" tabindex="-1" role="dialog" aria-labelledby="paymentModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="paymentModalLabel">Forma de Pago</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="paymentOption" id="creditCardOption" value="creditCard"/>
+                <label class="form-check-label" for="creditCardOption">Tarjeta de Crédito</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="paymentOption" id="bankTransferOption" value="bankTransfer"/>
+                <label class="form-check-label" for="bankTransferOption">Transferencia Bancaria</label>
+              </div>
+
+              <!-- Campos de entrada de datos para tarjeta de crédito -->
+              <div class="form-group">
+                <label for="creditCardNumber">Número de Tarjeta de Crédito:</label>
+                <input type="text" class="form-control" id="creditCardNumber" disabled/>
+              </div>
+              <div class="form-group">
+                <label for="expiryDate">Fecha de Vencimiento:</label>
+                <input type="text" class="form-control" id="expiryDate" disabled/>
+              </div>
+              <div class="form-group">
+                <label for="securityCode">Código de Seguridad:</label>
+                <input type="text" class="form-control" id="securityCode" disabled/>
+              </div>
+
+              <!-- Campo de entrada de datos para transferencia bancaria -->
+              <div class="form-group">
+                <label for="bankAccount">Cuenta Bancaria:</label>
+                <input type="text" class="form-control" id="bankAccount" disabled/>
+              </div>
+
+              <!-- Campo oculto para almacenar el método de pago seleccionado -->
+              <input type="hidden" id="paymentMethod" name="paymentMethod" value="creditCard"/>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal"> Cerrar
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-  <script src="js/bootstrap.bundle.min.js"></script>
+
+
+<script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>
-</body>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+  
+  // Habilitar/deshabilitar campos y actualizar el método de pago seleccionado
+$("input[type=radio][name=paymentOption]").change(function () {
+  if (this.value === "creditCard") {
+    $("#creditCardNumber, #expiryDate, #securityCode").prop(
+      "disabled",
+      false
+    );
+    $("#bankAccount").prop("disabled", true);
+    $("#paymentMethod").val("creditCard");
+    $("#selectedPaymentMethod").text("Tarjeta de Crédito");
+  } else if (this.value === "bankTransfer") {
+    $("#creditCardNumber, #expiryDate, #securityCode").prop(
+      "disabled",
+      true
+    );
+    $("#bankAccount").prop("disabled", false);
+    $("#paymentMethod").val("bankTransfer");
+    $("#selectedPaymentMethod").text("Transferencia Bancaria");
+  }
+});
 
+// Inicialmente, asegurémonos de que los campos de tarjeta de crédito estén desactivados
+$("#creditCardNumber, #expiryDate, #securityCode").prop("disabled", true);
+</script>
+
+</body>
 </html>
