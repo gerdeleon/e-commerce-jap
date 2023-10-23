@@ -48,7 +48,15 @@ hr {
 #infoEnvio label {
     margin: 5px;
 }
-
+.formadepago {
+    text-align: center;
+}
+.finalizarcomprabtn{
+    display: none;
+    text-align: center;
+    align-items: center;
+    align-self: center;
+}
 #direccionForm {
     margin: 10px;
 }
