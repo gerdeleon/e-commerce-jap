@@ -70,30 +70,56 @@ function actualizarUI(cartProducts) {
     const { cost, id, soldCount } = item;
     const cantidadInput = document.getElementById(`cantidad-${id}`);
     const reducirCantidadButton = document.getElementById(`reducir-cantidad-${id}`);
-
+    
     reducirCantidadButton.addEventListener("click", function (event) {
       reducirCantidad(id);
-  });
+    });
 
   function reducirCantidad(productID) {
     const cantidadInput = document.getElementById(`cantidad-${productID}`);
     let cantidadActual = parseInt(cantidadInput.value);
-
-    // Verifica que la cantidad actual sea mayor que 0 antes de reducirla
+  
     if (cantidadActual > 0) {
-        cantidadActual--;
-        cantidadInput.value = cantidadActual;
-
-        // Calcula el nuevo subtotal y actualiza la vista
-        const nuevoSubtotal = calcularSubtotal(productID);
-        const subtotalElement = document.getElementById(`subtotal-${productID}`);
-        subtotalElement.textContent = nuevoSubtotal.toFixed(2);
-
-        // Después de reducir la cantidad, actualiza los totales
-        actualizarCostoEnvio(subtotalGeneral);
+      cantidadActual--;
+      cantidadInput.value = cantidadActual;
+  
+      const nuevoSubtotal = calcularSubtotal(productID);
+      const subtotalElement = document.getElementById(`subtotal-${productID}`);
+      subtotalElement.textContent = nuevoSubtotal.toFixed(2);
+  
+      subtotalGeneral = cartProducts.reduce((total, product) => {
+        return total + calcularSubtotal(product.id);
+      }, 0);
+      subtotalGeneralElement.textContent = subtotalGeneral.toFixed(2);
+  
+      actualizarCostoEnvio(subtotalGeneral);
     }
-}
-
+  
+    if (cantidadActual <= 0) {
+      eliminarProducto(productID);
+    }
+  } 
+  
+  function calcularSubtotal(productID) {
+    const cantidadInput = document.getElementById(`cantidad-${productID}`);
+    const cantidadActual = parseInt(cantidadInput.value);
+    const costoUnitario = cartProducts.find(product => product.id === productID).cost;
+    return cantidadActual * costoUnitario;
+  }
+  
+  function eliminarProducto(productID) {
+    // Encuentra el producto en el carrito por su ID y elimínalo
+    const index = cartProducts.findIndex((product) => product.id === productID);
+    if (index !== -1) {
+      cartProducts.splice(index, 1);
+    }
+  
+    // Actualiza la vista del carrito
+    actualizarUI(cartProducts);
+  
+    // Luego de eliminar el producto, actualiza los totales
+    actualizarCostoEnvio(subtotalGeneral);
+  }
   
 
     cantidadInput.addEventListener("input", function (event) {
@@ -145,28 +171,63 @@ function actualizarUI(cartProducts) {
   }
 }
 
-
-/// DESAFIATEE Agregar evento de click al botón "Eliminar" ///
-
-/* function eliminarProducto(productoId) {
-    const cartProducts = JSON.parse(localStorage.getItem('carrito')) || [];
-
-    // Encontrar el índice del producto a eliminar por su ID
-    const productoIndex = cartProducts.findIndex((producto) => producto.id === productoId);
-
-    if (productoIndex !== -1) {
-        // Eliminar el producto del array de productos del carrito
-        cartProducts.splice(productoIndex, 1);
-
-        // Actualizar el localStorage con los productos restantes
-        localStorage.setItem('carrito', JSON.stringify(cartProducts));
-
-        // Recalcular los totales y actualizar la interfaz de usuario
-        actualizarUI(cartProducts);
-    } */
+////////////////////////////////////////////////////////////////////////////////
 
 
-/// FIN DESAFIATEE ///
+// Obtén una referencia al botón "Finalizar Compra"
+const finalizarCompraBtn = document.getElementById("finalizar-compra");
+
+// Añade un controlador de eventos clic al botón
+finalizarCompraBtn.addEventListener("click", function() {
+  // Valida el método de envío
+  const opcionesEnvio = document.getElementsByName("opcion");
+  let envioSeleccionado = false;
+  for (const opcion of opcionesEnvio) {
+    if (opcion.checked) {
+      envioSeleccionado = true;
+      break;
+    }
+  }
+
+  // Valida los campos de dirección
+  const calleInput = document.getElementById("validationCustom06");
+  const numeroInput = document.getElementById("validationCustom07");
+  const esquinaInput = document.getElementById("validationCustom08");
+
+  const direccionValida =
+    calleInput.checkValidity() && numeroInput.checkValidity() && esquinaInput.checkValidity();
+
+  // Valida el método de pago seleccionado
+  const selectedPaymentMethod = document.getElementById("selectedPaymentMethod").textContent;
+
+  // Obtén un contenedor para mostrar las alertas
+  const alertContainer = document.getElementById("alert-container");
+
+  if (!envioSeleccionado) {
+    showAlert("Por favor, seleccione un método de envío.", "danger");
+  } else if (!direccionValida) {
+    showAlert("Por favor, complete todos los campos de dirección.", "danger");
+  } else if (selectedPaymentMethod === "Ninguno") {
+    showAlert("Por favor, seleccione un método de pago.", "danger");
+  } else {
+    showAlert("Has comprado con éxito", "success");
+  }
+
+  // Función para mostrar alertas personalizadas con Bootstrap
+  function showAlert(message, type) {
+    const alertDiv = document.createElement("div");
+    alertDiv.classList.add("alert", `alert-${type}`, "alert-dismissible");
+    alertDiv.innerHTML = `
+      <div>${message}</div>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    `;
+    alertContainer.appendChild(alertDiv);
     
+    scrollToAlertContainer();
+  }
 
-
+  // Función para desplazarse al contenedor de alertas
+  function scrollToAlertContainer() {
+    alertContainer.lastChild.scrollIntoView({ behavior: "smooth" });
+  }
+});

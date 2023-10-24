@@ -247,4 +247,6 @@ const handleAddCarrito = () => {
   localStorage.removeItem('carrito')
   localStorage.setItem('carrito', JSON.stringify([...filteredCart, prod]))
 
+  
 }
+
