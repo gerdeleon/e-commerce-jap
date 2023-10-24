@@ -103,3 +103,9 @@ footer{
         width: 90%; 
     }
 }
+
+
+.campo-incompleto {
+    border: 2px solid red; /* Establece un borde rojo para resaltar el campo incompleto */
+  }
+  

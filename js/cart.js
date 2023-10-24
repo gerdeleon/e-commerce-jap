@@ -41,7 +41,7 @@ function crearProductoHTML(item) {
             <p>Nombre: ${name}</p>
             <p>Precio: ${currency} ${cost}</p>
             <label for="cantidad-${name}">Cantidad:</label>
-            <input type="number" id="cantidad-${id}" value="${soldCount}" min='0' max='100'">
+            <input type="number" id="cantidad-${id}" value="${soldCount}" min='1' max='100'">
             <p>Subtotal: <span id="subtotal-${id}">${cost * soldCount} </span></p>
             <img src="${image}" alt="Imagen del producto" width="300">
             <button id="reducir-cantidad-${id}" class="btn btn-eliminar" data-product-id="${id}" style="background-color: rgb(255, 165, 0);">
@@ -142,6 +142,7 @@ function actualizarUI(cartProducts) {
   }
 
 
+
   const subtotalGeneralElement = document.getElementById("subtotal-general").querySelector("span");
   subtotalGeneralElement.textContent = total_del_precio.toFixed(2);
 
@@ -171,7 +172,7 @@ function actualizarUI(cartProducts) {
   }
 }
 
-////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////BOTON FINALIZAR COMPRA//////////////////////////////////////////////
 
 
 // Obtén una referencia al botón "Finalizar Compra"
