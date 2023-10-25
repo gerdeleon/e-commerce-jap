@@ -33,6 +33,7 @@ async function obtenerDatosCarrito() {
 }
 
 
+
 function crearProductoHTML(item) {
     const { name, currency, cost, id, soldCount, image } = item
     return `
@@ -170,6 +171,7 @@ function actualizarUI(cartProducts) {
     const totalPagarElement = document.getElementById("total-pagar").querySelector("span");
     totalPagarElement.textContent = totalPagar.toFixed(2);
   }
+  
 }
 
 //////////////////////////////////BOTON FINALIZAR COMPRA//////////////////////////////////////////////
