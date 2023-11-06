@@ -69,7 +69,6 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             maxCount = undefined;
         }
-
         showCategoriesList();
     });
 });
@@ -118,7 +117,6 @@ function sortAndShowCategories(sortCriteria, categoriesArray) {
     if (categoriesArray != undefined) {
         currentCategoriesArray = categoriesArray;
     }
-
     currentCategoriesArray = sortCategories(currentSortCriteria, currentCategoriesArray);
     showCategoriesList();
 }
@@ -184,7 +182,6 @@ function renderProducts(products) {
         img.src = product.image;
         img.alt = product.name;
         img.classList.add("img-thumbnail");
-
         imgDiv.appendChild(img);
 
         const cardBody = document.createElement("div");
@@ -204,12 +201,9 @@ function renderProducts(products) {
         cardBody.appendChild(productName);
         cardBody.appendChild(productDescription);
         cardBody.appendChild(productPrice);
-
         card.appendChild(imgDiv);
         card.appendChild(cardBody);
-
         productoDiv.appendChild(card);
-
         productosContainer.appendChild(productoDiv);
     });
 }

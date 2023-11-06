@@ -1,4 +1,3 @@
-// Esperar a que se cargue completamente el documento HTML
 document.addEventListener("DOMContentLoaded", function () {
   // Verificar si se ha redirigido desde otra página
   const hasRedirected = localStorage.getItem("hasRedirected");

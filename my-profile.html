@@ -24,6 +24,7 @@
       }
     }
   </style>
+    <title>Subir Foto de Perfil</title>
 </head>
 
 <body>
@@ -65,11 +66,74 @@
 </header>
 
   <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div>
+
+    
+    <div class="container mt-5 align">
+    <h2>Mi Perfil</h2>
+
+    <div class="row">
+        <div class="col-md-1">
+          <img id="imagenPerfil" src="img/logoLogin.png" alt="Foto de perfil predeterminada">
+            <img class="w-100" id="imagenPerfil" src="" alt="Foto de Perfil">
+            <br><br>
+        </div>
+
+        <div class="col-md-9">
+            <form id="profileForm">
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="inputNombre">Nombre*</label>
+                        <input type="text" class="form-control" id="inputNombre" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputSegundoNombre">Segundo Nombre</label>
+                        <input type="text" class="form-control" id="inputSegundoNombre">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="inputApellido">Apellido*</label>
+                        <input type="text" class="form-control" id="inputApellido" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputSegundoApellido">Segundo Apellido</label>
+                        <input type="text" class="form-control" id="inputSegundoApellido">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail">E-mail*</label>
+                        <input type="email" class="form-control" id="inputEmail" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputTelefono">Teléfono de contacto</label>
+                        <input type="tel" class="form-control" id="inputTelefono">
+                    </div>
+                </div> 
+                <br> 
+                <br>
+                <div class="row">
+                  <div class="form-group col-md-12">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="fileInput">
+                        <label class="custom-file-label" for="fileInput"></label>
+                    </div>
+                </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <button onclick="guardarFoto()" type="submit" class="btn btn-primary">Guardar Cambios</button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
+</div>
+
+
   </main>
   <footer class="text-muted">
     <div class="container">

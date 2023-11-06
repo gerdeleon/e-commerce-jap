@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>eMercado - Todo lo que busques está aquí</title>
 
@@ -49,7 +49,6 @@
         </nav>
     </header>
 
-
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -75,7 +74,7 @@
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
-      </div>
+    </div>
 
     <main>
         <div class="jumbotron text-center"></div>
@@ -98,8 +97,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="card mb-4 shadow-sm custom-card cursor-active" id="muebles" >
+                    <div class "col-md-4">
+                        <div class="card mb-4 shadow-sm custom-card cursor-active" id="muebles">
                             <div class="card-body">
                                 <h3>MUEBLES</h3>
                                 <p class="card-text">Muebles antiguos, nuevos y para ser armados por uno mismo.</p>
@@ -125,55 +124,36 @@
 
     <script>
         // Función para alternar el modo y guardar la preferencia en el localStorage
-       // Función para alternar el modo
-function alternarModo() {
-    const modoBoton = document.getElementById("modoBoton");
-    const modoActual = modoBoton.textContent;
+        function alternarModo() {
+            const modoBoton = document.getElementById("modoBoton");
+            const modoActual = modoBoton.textContent;
 
-    // Cambiar el texto del botón y guardar la preferencia en el localStorage
-    if (modoActual === "Modo Noche") {
-        // Cambiar al modo nocturno
-        modoBoton.textContent = "Modo Día";
+            if (modoActual === "Modo Noche") {
+                modoBoton.textContent = "Modo Día";
+                document.getElementById("modo-noche-estilos").removeAttribute("disabled");
+                localStorage.setItem("modoPreferencia", "noche");
+            } else {
+                modoBoton.textContent = "Modo Noche";
+                document.getElementById("modo-noche-estilos").setAttribute("disabled", true);
+                localStorage.setItem("modoPreferencia", "dia");
+            }
+        }
 
-        // Habilitar los estilos del modo nocturno
-        document.getElementById("modo-noche-estilos").removeAttribute("disabled");
+        function cargarPreferenciaModo() {
+            const modoPreferencia = localStorage.getItem("modoPreferencia");
+            if (modoPreferencia === "noche") {
+                document.getElementById("modoBoton").textContent = "Modo Día";
+                document.getElementById("modo-noche-estilos").removeAttribute("disabled");
+            }
+        }
 
-        // Guardar la preferencia en el localStorage
-        localStorage.setItem("modoPreferencia", "noche");
-    } else {
-        // Cambiar al modo día
-        modoBoton.textContent = "Modo Noche";
-
-        // Deshabilitar los estilos del modo nocturno
-        document.getElementById("modo-noche-estilos").setAttribute("disabled", true);
-
-        // Guardar la preferencia en el localStorage
-        localStorage.setItem("modoPreferencia", "dia");
-    }
-}
-
-// Función para cargar la preferencia almacenada al cargar la página
-function cargarPreferenciaModo() {
-    const modoPreferencia = localStorage.getItem("modoPreferencia");
-    if (modoPreferencia === "noche") {
-        // Aplicar el modo nocturno
-        document.getElementById("modoBoton").textContent = "Modo Día";
-        document.getElementById("modo-noche-estilos").removeAttribute("disabled");
-    }
-    // Si no hay preferencia almacenada o es "dia", se aplicará el modo día por defecto.
-}
-
-      // Llamar a la función para cargar la preferencia al cargar la página
-       cargarPreferenciaModo();
-
-    function logout() {
-            //Eliminar los datos del usuario del localStorage.
+        function logout() {
             localStorage.removeItem("usuario");
             localStorage.removeItem("contrasena");
-
-            //Redirigir al usuario a la página de inicio de sesión.
             window.location.href = "login.html";
         }
+
+        cargarPreferenciaModo();
     </script>
 
     <script src="js/bootstrap.bundle.min.js"></script>

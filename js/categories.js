@@ -104,7 +104,6 @@ function sortAndShowCategories(sortCriteria, categoriesArray) {
     showCategoriesList();
 }
 
-// Función que se ejecuta cuando el documento HTML se ha cargado completamente
 document.addEventListener("DOMContentLoaded", function (e) {
     // Llamar a la función getJSONData para obtener datos de categorías
     getJSONData(CATEGORIES_URL).then(function (resultObj) {

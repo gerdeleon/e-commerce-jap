@@ -1,4 +1,3 @@
-// Esperar a que se cargue completamente el documento HTML
 document.addEventListener("DOMContentLoaded", function () {
   // Obtener referencias a los elementos del formulario
   const usernameInput = document.getElementById('usuario');
@@ -10,6 +9,13 @@ document.addEventListener("DOMContentLoaded", function () {
     // Obtener el nombre de usuario y contraseña ingresados
     const username = usernameInput.value;
     const password = passwordInput.value;
+    var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+    if (!usuario.checkValidity() || !emailRegex.test(usuario.value)) {
+      // Verificar si los campos cumplen con el atributo 'required' del formulario
+      alert("Por favor, ingresa un correo electrónico válido.");
+      return false;
+    }
 
     // Verificar si se han ingresado tanto usuario como contraseña
     if (username && password) {
@@ -32,16 +38,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Función para validar el formulario de inicio de sesión
 function validarFormulario() {
+
   var usuario = document.getElementById("usuario").value;
   var contrasena = document.getElementById("contrasena").value;
 
-  if (usuario === "" || contrasena === "") {
+  if (usuario.value === "" || contrasena.value === "") {
     // Mostrar una alerta si falta el nombre de usuario o la contraseña
     alert("Por favor, completa todos los campos.");
     return false;
   }
-
-  // Abrir una nueva ventana o pestaña con el archivo "index.html"
+  // Abrir una nueva ventana o pestaña con el archivo "index.html" solo si la validación es exitosa
   window.open("index.html", "_blank");
 
   return true;
