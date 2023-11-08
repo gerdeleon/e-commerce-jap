@@ -1,11 +1,5 @@
-window.onload = function () {
-    if (!verificarSesion()) {
-      // Redirigir a la página de inicio de sesión si el usuario no ha iniciado sesión
-      window.location.href = "login.html";
-    }
-  };
-  
-  
+document.addEventListener("DOMContentLoaded", function () {
+
   // Obtener y mostrar el nombre de usuario almacenado
   const storedUsername = localStorage.getItem('usuario');
   const usernameDisplay = document.getElementById('usuario-prueba');
@@ -65,34 +59,42 @@ document.getElementById('profileForm').addEventListener('submit', function(event
   }
 });
 
-////////////////////////////////////////////////////////////////////////////////////
 
-function guardarFoto() {
-  const fileInput = document.getElementById('fileInput');
-  const imagenPerfil = document.getElementById('imagenPerfil');
-
-  const file = fileInput.files[0];
-  if (file) {
-      const reader = new FileReader();
-
-      reader.onload = function(event) {
-          // Muestra la imagen cargada
-          imagenPerfil.src = event.target.result;
-
-          // Guarda la imagen en localStorage
-          localStorage.setItem('imagenPerfil', event.target.result);
-          // También podrías enviarla al servidor usando AJAX o fetch
-      };
-
-      reader.readAsDataURL(file);
-  }
-}
-
-// Al cargar la página, comprueba si hay una imagen guardada en localStorage
-window.onload = function() {
-  const imagenPerfil = document.getElementById('imagenPerfil');
-  const imagenGuardada = localStorage.getItem('imagenPerfil');
-  if (imagenGuardada) {
-      imagenPerfil.src = imagenGuardada;
+window.onload = function () {
+  if (!verificarSesion()) {
+    // Redirigir a la página de inicio de sesión si el usuario no ha iniciado sesión
+    window.location.href = "login.html";
   }
 };
+});
+
+////////////////////////////////////////////////////////////////////////////////////
+
+const imagenPerfil = document.getElementById('imagenPerfil');
+  const imagenGuardada = localStorage.getItem('imagenPerfil');
+  if (imagenGuardada) {
+    // Si hay una imagen guardada, cargarla
+    imagenPerfil.src = imagenGuardada;
+  } else {
+    // Si no hay una imagen guardada, mostrar la imagen predeterminada
+    imagenPerfil.src = 'img/logoLogin.png';
+  }
+
+  function guardarFoto() {
+    const fileInput = document.getElementById('fileInput');
+    const imagenPerfil = document.getElementById('imagenPerfil');
+    const file = fileInput.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        // Mostrar la imagen cargada
+        imagenPerfil.src = event.target.result;
+        // Guardar la imagen en localStorage solo si se ha cambiado
+        if (imagenPerfil.src !== localStorage.getItem('imagenPerfil')) {
+          localStorage.setItem('imagenPerfil', event.target.result);
+          // También puedes enviarla al servidor usando AJAX o fetch si es necesario
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+  }

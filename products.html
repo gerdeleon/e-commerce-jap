@@ -38,7 +38,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="usuarioDropdown">
                             <a class="dropdown-item" href="cart.html">Mi Carrito</a>
-                            <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
+                            <a class="dropdown-item" onclick="verificarUsuario()">Mi Perfil</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="login.html" onclick="logout()">Cerrar Sesión</a>
                             <a class="dropdown-item" id="modoBoton" onclick="alternarModo()">Modo Noche</a>
@@ -50,7 +50,8 @@
     </nav>
 </header>
 
-  
+<div id="alert-container" class="mt-3"></div>
+
   </div>
   <div class="container mt-5">
     <input type="search" id="buscador" class="form-control my-2" placeholder="Buscar productos...">

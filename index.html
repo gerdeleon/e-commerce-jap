@@ -37,7 +37,7 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="usuarioDropdown">
                                 <a class="dropdown-item" href="cart.html">Mi Carrito</a>
-                                <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
+                                <a class="dropdown-item" onclick="verificarUsuario()">Mi Perfil</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" onclick="logout()">Cerrar Sesión</a>
                                 <a class="dropdown-item" id="modoBoton" onclick="alternarModo()">Modo Noche</a>
@@ -48,6 +48,8 @@
             </div>
         </nav>
     </header>
+
+    <div id="alert-container" class="mt-3"></div>
 
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
         <div class="carousel-indicators">
@@ -97,7 +99,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class "col-md-4">
+                    <div class="col-md-4">
                         <div class="card mb-4 shadow-sm custom-card cursor-active" id="muebles">
                             <div class="card-body">
                                 <h3>MUEBLES</h3>

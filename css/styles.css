@@ -62,6 +62,10 @@ body {
   margin-right: 10px;
 }
 
+.card-body{
+  cursor: pointer;
+}
+
 .filter-controls .btn-group-toggle .btn.active {
   background-color: #2980b9;
 }
