@@ -50,7 +50,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const setProduct = JSON.parse(localStorage.getItem("setProduct"));
   const productId = setProduct;
-  console.log(productId)
   const jsonUrl = `http://localhost:3000/products_comments/${productId}`;
 
   function agregarComentario(comentario) {
@@ -91,8 +90,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
   function obtenerEstrellas(puntuacion) {
-    const estrellas = '★'.repeat(puntuación);
-    const estrellasVacias = '☆'.repeat(5 - puntuación);
+    const estrellas = '★'.repeat(puntuacion);
+    const estrellasVacias = '☆'.repeat(5 - puntuacion);
     const estrellasHTML = `<span style="color: orange">${estrellas}</span><span>${estrellasVacias}</span>`;
     return estrellasHTML;
   }

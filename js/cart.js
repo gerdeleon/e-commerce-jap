@@ -170,7 +170,7 @@ function actualizarUI(cartProducts) {
 // BOTON FINALIZAR COMPRA
 const finalizarCompraBtn = document.getElementById("finalizar-compra");
 
-finalizarCompraBtn.addEventListener("click", function() {
+finalizarCompraBtn.addEventListener("click", function () {
   const opcionesEnvio = document.getElementsByName("opcion");
   let envioSeleccionado = false;
   for (const opcion of opcionesEnvio) {
