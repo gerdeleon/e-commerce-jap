@@ -53,14 +53,14 @@ document.addEventListener("DOMContentLoaded", function () {
 function verificarUsuario() {
   // Verificar si el usuario está almacenado en el localStorage
   const usuario = localStorage.getItem('usuario');
-  
+
   if (usuario) {
     // Si el usuario está en el localStorage, redirigir a my-profile.html
     window.location.href = "my-profile.html";
   } else {
     // Si el usuario no está en el localStorage, mostrar una alert
     const alertContainer = document.getElementById('alert-container');
-    
+
     const alertDiv = document.createElement('div');
     alertDiv.classList.add('alert', 'alert-warning', 'alert-dismissible', 'fade', 'show');
     alertDiv.setAttribute('role', 'alert');
@@ -68,7 +68,7 @@ function verificarUsuario() {
       Debes iniciar sesión para acceder a tu perfil.
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     `;
-    
+
     // Agregar la alerta al contenedor de alertas
     alertContainer.appendChild(alertDiv);
   }

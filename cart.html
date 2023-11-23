@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -9,16 +10,18 @@
   <link rel="stylesheet" href="css/font-awesome.min.css">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/styles-carrito.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 </head>
+
 <body>
   <header>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #34495e;">
       <div class="container">
         <a class="navbar-brand" href="index.html" style="color: aliceblue;">eMercado</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
@@ -33,8 +36,8 @@
               <a class="nav-link" href="sell.html">Vender</a>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="usuario-prueba" role="button"
-                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="#" id="usuario-prueba" role="button" data-bs-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
               </a>
               <div class="dropdown-menu" aria-labelledby="usuarioDropdown">
                 <a class="dropdown-item" href="cart.html">Mi Carrito</a>
@@ -90,12 +93,13 @@
           </div>
         </form>
 
-        
+
         <div class="formadepago">
           <h2>Forma de pago</h2>
           <a data-toggle="modal" href="#paymentModal">Seleccionar</a>
           <p>Método de Pago Seleccionado: <span id="selectedPaymentMethod">Ninguno</span></p>
-          <div class="modal fade" id="paymentModal" tabindex="-1" role="dialog" aria-labelledby="paymentModalLabel" aria-hidden="true">
+          <div class="modal fade" id="paymentModal" tabindex="-1" role="dialog" aria-labelledby="paymentModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
@@ -107,30 +111,32 @@
                 <div class="modal-body">
                   <form>
                     <div class="form-check">
-                      <input class="form-check-input" type="radio" name="paymentOption" id="creditCardOption" value="creditCard"/>
+                      <input class="form-check-input" type="radio" name="paymentOption" id="creditCardOption"
+                        value="creditCard" />
                       <label class="form-check-label" for="creditCardOption">Tarjeta de Crédito</label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="radio" name="paymentOption" id="bankTransferOption" value="bankTransfer"/>
+                      <input class="form-check-input" type="radio" name="paymentOption" id="bankTransferOption"
+                        value="bankTransfer" />
                       <label class="form-check-label" for="bankTransferOption">Transferencia Bancaria</label>
                     </div>
                     <div class="form-group">
                       <label for="creditCardNumber">Número de Tarjeta</label>
-                      <input type="text" class="form-control" id="creditCardNumber" disabled/>
+                      <input type="text" class="form-control" id="creditCardNumber" disabled />
                     </div>
                     <div class="form-group">
                       <label for="expiryDate">Vencimiento (MM/AA)</label>
-                      <input type="text" class="form-control" id="expiryDate" disabled/>
+                      <input type="text" class="form-control" id="expiryDate" disabled />
                     </div>
                     <div class="form-group">
                       <label for="securityCode">Código de Seguridad</label>
-                      <input type="text" class="form-control" id="securityCode" disabled/>
+                      <input type="text" class="form-control" id="securityCode" disabled />
                     </div>
                     <div class="form-group">
                       <label for="bankAccount">Número de Cuenta</label>
-                      <input type="text" class="form-control" id="bankAccount" disabled/>
+                      <input type="text" class="form-control" id="bankAccount" disabled />
                     </div>
-                    <input type="hidden" id="paymentMethod" name="paymentMethod" value="creditCard"/>
+                    <input type="hidden" id="paymentMethod" name="paymentMethod" value="creditCard" />
                   </form>
                 </div>
                 <div class="modal-footer"></div>
@@ -145,32 +151,35 @@
 
         <button type="button" class="btn btn-primary" id="finalizar-compra">Finalizar Compra</button>
 
-      </main>
-     
-    </div>
-    
-    <script src="js/init.js"></script>
-    <script src="js/cart.js"></script>
-    <script src="js/product-info.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
-    <script>
-      $("input[type=radio][name=paymentOption]").change(function () {
-        if (this.value === "creditCard") {
-          $("#creditCardNumber, #expiryDate, #securityCode").prop("disabled", false);
-          $("#bankAccount").prop("disabled", true);
-          $("#paymentMethod").val("creditCard");
-          $("#selectedPaymentMethod").text("Tarjeta de Crédito");
-        } else if (this.value === "bankTransfer") {
-          $("#creditCardNumber, #expiryDate, #securityCode").prop("disabled", true);
-          $("#bankAccount").prop("disabled", false);
-          $("#paymentMethod").val("bankTransfer");
-          $("#selectedPaymentMethod").text("Transferencia Bancaria");
-        }
-      });
-      $("#creditCardNumber, #expiryDate, #securityCode").prop("disabled", true);
-    </script>
-  </body>
+    </main>
+
+  </div>
+
+  <script src="js/init.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/product-info.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+    integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+    crossorigin="anonymous"></script>
+  <script>
+    $("input[type=radio][name=paymentOption]").change(function () {
+      if (this.value === "creditCard") {
+        $("#creditCardNumber, #expiryDate, #securityCode").prop("disabled", false);
+        $("#bankAccount").prop("disabled", true);
+        $("#paymentMethod").val("creditCard");
+        $("#selectedPaymentMethod").text("Tarjeta de Crédito");
+      } else if (this.value === "bankTransfer") {
+        $("#creditCardNumber, #expiryDate, #securityCode").prop("disabled", true);
+        $("#bankAccount").prop("disabled", false);
+        $("#paymentMethod").val("bankTransfer");
+        $("#selectedPaymentMethod").text("Transferencia Bancaria");
+      }
+    });
+    $("#creditCardNumber, #expiryDate, #securityCode").prop("disabled", true);
+  </script>
+</body>
+
 </html>
