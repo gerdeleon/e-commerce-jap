@@ -1,8 +1,8 @@
-const product = localStorage.getItem('setProduct');
+const product = JSON.parse(localStorage.getItem('setProduct'));
 let producto_del_fetch = "";
 
 document.addEventListener("DOMContentLoaded", function () {
-  fetch(`https://japceibal.github.io/emercado-api/products/${product}.json`)
+  fetch(`http://localhost:3000/products/${product}`)
     .then(response => response.json())
     .then(product => {
       producto_del_fetch = product;
@@ -48,9 +48,10 @@ document.addEventListener("DOMContentLoaded", function () {
     })
     .catch(error => console.error('Error al obtener información del producto:', error));
 
-  const setProduct = localStorage.getItem("setProduct");
-  const productId = parseInt(setProduct);
-  const jsonUrl = `https://japceibal.github.io/emercado-api/products_comments/${productId}.json`;
+  const setProduct = JSON.parse(localStorage.getItem("setProduct"));
+  const productId = setProduct;
+  console.log(productId)
+  const jsonUrl = `http://localhost:3000/products_comments/${productId}`;
 
   function agregarComentario(comentario) {
     const comentarioDiv = document.createElement("div");
@@ -96,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {
     return estrellasHTML;
   }
 
-  fetch(`https://japceibal.github.io/emercado-api/products/${product}.json`)
+  fetch(`http://localhost:3000/products/${product}`)
     .then(response => response.json())
     .then(product => {
       const productRelacionadosElement = document.getElementById('relProds');
@@ -119,10 +120,10 @@ function redirectToProduct(product) {
   localStorage.setItem("selectedProductId", product);
   window.scrollTo(0, 0);
 
-  const productoID = localStorage.getItem('selectedProductId');
+  const productoID = JSON.parse(localStorage.getItem('selectedProductId'));
 
   if (productoID) {
-    const productUrl = `https://japceibal.github.io/emercado-api/products/${productoID}.json`;
+    const productUrl = `http://localhost:3000/products/${productoID}`;
     fetch(productUrl)
       .then(response => response.json())
       .then(product => {

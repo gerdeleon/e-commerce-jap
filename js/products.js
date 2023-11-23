@@ -13,8 +13,8 @@ if (storedUsername) {
 }
 
 // Obtiene el ID de categoría y construye la URL de la API.
-let catID = localStorage.getItem("catID");
-let URL_CAT = `https://japceibal.github.io/emercado-api/cats_products/${catID}.json`;
+let catID = JSON.parse(localStorage.getItem("catID"));
+let URL_CAT = `http://localhost:3000/cats_products/${catID}`;
 
 // Constantes para criterios de ordenamiento.
 const ORDER_ASC_BY_PRICE = "PriceAsc";
@@ -89,7 +89,7 @@ function showCategoriesList() {
             ((maxCount == undefined) || (maxCount != undefined && parseInt(category.cost) <= maxCount))) {
 
             htmlContentToAppend += `
-                <div class="list-group-item list-group-item-action">
+                <div class="list-group-item list-group-item-action" onclick="setProductID(${category.id})" >
                     <div class="row">
                         <div class="col-3">
                             <img src="${category.image}" alt="product image" class="img-thumbnail">
@@ -102,7 +102,6 @@ function showCategoriesList() {
                                 </div>
                                 <small class="text">${category.soldCount} vendidos</small>
                             </div>
-                            <button class="btn btn-primary" onclick="setProductID(${category.id})">Más información</button>
                         </div>
                     </div>
                 </div>`;

@@ -15,7 +15,7 @@ async function main() {
 
 async function obtenerDatosCarrito() {
   try {
-    const URL = 'https://japceibal.github.io/emercado-api/user_cart/25801.json';
+    const URL = 'http://localhost:3000/userCart';
     const response = await fetch(URL);
     const data = await response.json();
     const endpointData = data.articles[0];
